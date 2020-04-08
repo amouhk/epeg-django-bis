@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Mon site Web vitrine{% endblock %}</title>
-    {% block stylesheets %} {% endblock %}
+    <title>{% block appv-title %}Mon site Web vitrine{% endblock %}</title>
+    {% block appv-styles %} {% endblock %}
 </head>
 <body>
 <header>
-    {% block nav %} {% endblock %}
+    {% block appv-navbar %} {% endblock %}
 
-    {% block section-home %}{% endblock %}
+    {% block appv-section-home %}{% endblock %}
 </header>
 
-{% block content %}{% endblock %}
 
-{% block footer %}{% endblock %}
+{% block appv-content %}<main></main>{% endblock %}
 
-{% block scripts %}{% endblock %}
+
+{% block appv-footer %}{% endblock %}
+
+{% block appv-scripts %}{% endblock %}
 
 </body>
 </html>
