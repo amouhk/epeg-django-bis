@@ -5,4 +5,5 @@ urlpatterns = [
     path('accueil',     views.home),
     path('about',       views.about),
     path('activity',    views.activity),
+    path('gallery',     views.gallery_photo),
 ]
