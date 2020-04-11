@@ -1,16 +1,16 @@
 <!-- Main content -->
 {% load static %}
 <main>
-
+    <!-- Photos -->
     <div class="container">
 
-        <section class="mt-3 mb-5 pt-1 pb-5">
+        <section id="gallery_photo" class="mt-3 mb-5 pt-3 pb-5">
 
             <!-- Section heading -->
-            <h3 class="text-center title my-5 pt-4 pb-4 dark-grey-text font-weight-bold wow fadeIn"
+            <h2 class="text-center title my-5 dark-grey-text font-weight-bold wow fadeIn"
                 data-wow-delay="0.2s">
-                <strong>Our projects</strong>
-            </h3>
+                <strong>Galérie des photos</strong>
+            </h2>
 
             <!-- Grid row -->
             <div class="row">
@@ -18,11 +18,11 @@
                 <!-- Grid column -->
                 <div class="col-md-12 d-flex justify-content-center mb-5 pb-2">
 
-                   <button type="button" class="btn btn-rounded btn-white font-weight-bold waves-effect filter"
+                    <button type="button" class="btn btn-rounded btn-white font-weight-bold waves-effect filter"
                             data-rel="all">All
                     </button>
 
-                    {% for iter  in albums %}
+                    {% for iter in albums %}
                     <button type="button" class="btn btn-rounded btn-white font-weight-bold waves-effect filter"
                             data-rel="{{ iter.album }}">{{ iter.album }}
                     </button>
@@ -40,9 +40,9 @@
 
                 <!-- Grid column -->
                 {% for photo in photos %}
-                <div class="mb-3 pics animation all {{ photo.album}}">
+                <div class="mb-3 pics animation all {{ photo.album }}">
                     <img class="img-fluid" src="{% static 'appv/'|concat_string:photo.filepath %}"
-                         alt="Card image cap">
+                         alt="{{ photo.name }}">
                 </div>
                 {% endfor %}
                 <!-- Grid column -->
@@ -60,186 +60,85 @@
         </section>
 
     </div>
-    <!-- Streak -->
-    <div class="streak streak-photo streak-md"
-         style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg');">
-        <div class="flex-center mask rgba-gradient">
-            <div class="container my-5">
+    <!-- Photos -->
 
-                <!-- Section heading -->
-                <h3 class="text-center pb-3 white-text font-weight-bold wow fadeIn" data-wow-delay="0.2s">
-                    <strong>Download our mobile app</strong>
-                </h3>
-                <h6 class="text-center white-text pb-4 font-weight-bold wow fadeIn" data-wow-delay="0.2s">Get 30 days
-                    trial
-                </h6>
-                <!-- First row -->
-                <div class="row flex-center">
+    <!-- Videos -->
+    <div id="gallery_video" class="container-fluid light-grey-background">
+     <div class="container py-2">
 
-                    <a class="btn btn-white btn-rounded btn-lg orange-text font-weight-bold ml-0 wow fadeIn"
-                       data-wow-delay="0.2s">
-                        <i class="fab fa-android pr-2" aria-hidden="true"></i> Play store</a>
-                    <a class="btn btn-white btn-rounded btn-lg orange-text font-weight-bold wow fadeIn"
-                       data-wow-delay="0.2s">
-                        <i class="fab fa-apple pr-2" aria-hidden="true"></i> App store</a>
+        <section>
+
+          <!-- Section heading -->
+          <h2 class="text-center title my-5 pb-5 dark-grey-text font-weight-bold wow fadeIn" data-wow-delay="0.2s">
+            <strong>Galérie des vidéos</strong>
+          </h2>
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            {% for video in videos %}
+            <div class="col-lg-4 col-md-12 mb-4">
+
+                <!--Modal: Name-->
+                <div class="modal fade" id="{{ 'modal'|concat_string:video.name }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true" >
+                    <div class="modal-dialog modal-lg" role="document" style="width : 1600px; ">
+
+                        <!--Content-->
+                        <div class="modal-content">
+
+                            <!--Body-->
+                            <div class="modal-body mb-0 p-0">
+
+                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                    <iframe class="embed-responsive-item"
+                                            src="https://www.youtube.com/embed/GUEZCxBcM78"
+                                            allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer justify-content-center">
+                                <span class="mr-4">Spread the word!</span>
+                                <a type="button" class="btn-floating btn-sm btn-fb"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <!--Twitter-->
+                                <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+                                <!--Google +-->
+                                <a type="button" class="btn-floating btn-sm btn-gplus"><i
+                                        class="fab fa-google-plus-g"></i></a>
+                                <!--Linkedin-->
+                                <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
+
+                                <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                                        data-dismiss="modal">Close
+                                </button>
+
+                            </div>
+
+                        </div>
+                        <!--/.Content-->
+
+                    </div>
                 </div>
-                <!-- First row -->
+                <!--Modal: Name-->
+
+                <a><img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-4.jpg"
+                        alt="video"
+                        data-toggle="modal" data-target="{{ '#modal'|concat_string:video.name }}"></a>
 
             </div>
-        </div>
-    </div>
-    <!-- Streak -->
+            {% endfor %}
 
-    <div class="container-fluid light-grey-background">
-        <div class="container py-4">
-
-            <!-- Section: Services -->
-            <section id="services" class="mt-3 mb-3 pb-3">
-
-                <!-- Section heading -->
-                <h3 class="text-center title my-5 pt-4 pb-5 dark-grey-text font-weight-bold wow fadeIn"
-                    data-wow-delay="0.2s">
-                    <strong>General questions</strong>
-                </h3>
-
-                <!-- Grid row -->
-                <div class="row wow fadeIn" data-wow-delay="0.4s">
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>How to create an account?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Second column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>Is it mobile friendly?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>Is it bootstrap based?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row wow fadeIn" data-wow-delay="0.4s">
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>How to cancel a plan?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>How to change theme color?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-5 text-center">
-
-                        <!-- Panel -->
-                        <div class="text-left">
-                            <p class="title font-weight-bold dark-grey-text text-uppercase spacing mt-4 mx-4">
-                                <i class="fas fa-square orange-text mr-2" aria-hidden="true"></i>
-                                <strong>Place your question here?</strong>
-                            </p>
-                            <p class="grey-text font-small mx-4">Nihil anim keffiyeh helvetica, craft beer labore wes
-                                anderson cred
-                                nesciunt sapiente earu
-                                proident.
-                            </p>
-                        </div>
-                        <!-- Panel -->
-
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-            </section>
-            <!-- Section: Services -->
 
         </div>
+        <!-- Grid row -->
+
+        </section>
+     </div>
     </div>
-    <!-- Second container -->
+    <!-- Videos -->
 
 </main>
 <!-- Main content -->

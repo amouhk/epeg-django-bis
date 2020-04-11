@@ -1,10 +1,14 @@
+import pprint
+
 from django.http import Http404
 from django.shortcuts import render
 
-from appv.models import GalleryItem
+from appv.models import Gallery
+from appv.models import Predication
 
 
 def home(request):
+    sermon_latest = Predication.objects.order_by('date').reverse()[0]
     return render(request, 'appv/index.html', locals())
 
 
@@ -19,16 +23,15 @@ def activity(request):
     return render(request, 'appv/activity.html', locals())
 
 
-def gallery_photo(request):
-    photos = GalleryItem.objects.all()
-    albums = GalleryItem.objects.values('album').distinct()
-    print(albums)
+def gallery(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    # GalleryItem.objects.filter(type__contains="Photo")
+    albums = Gallery.objects.values('album').distinct()
+    photos = Gallery.objects.filter(type="Photo")
+    videos = Gallery.objects.filter(type="Video")
     return render(request, 'appv/gallery.html', locals())
 
 
-def gallery_video(request):
-    videos = GalleryItem.objects.all()
+def sermon(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    return render(request, 'appv/gallery.html', locals())
+    sermons = Predication.objects.order_by('date').reverse()
+    return render(request, 'appv/sermon.html', locals())

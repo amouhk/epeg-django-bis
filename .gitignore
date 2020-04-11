@@ -1,0 +1,11 @@
+.idea
+epeg/.idea
+epeg/.idea/*
+epeg/appv/static/appv/gallery
+epeg/appv/static/appv/gallery/*
+epeg/appv/templatetags/__pycache__
+epeg/appv/migrations/*
+epeg/appv/__pycache__
+epeg/appv/__pycache__/*
+
+

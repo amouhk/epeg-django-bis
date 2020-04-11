@@ -1,0 +1,122 @@
+<!-- Main content -->
+{% load static %}
+<main>
+    <div class="container">
+
+        <!-- Section heading -->
+        <h2 class="title text-center pb-3 font-weight-bold my-5 wow fadeIn" data-wow-delay="0.2s">
+            <strong> Prédications & Témoignages </strong>
+        </h2>
+
+        <!-- Section: Player -->
+        <section class="mb-5">
+
+            <div class="row">
+                <!-- Subheading -->
+                <div id="panel_audio" class="col mb-3 wow fadeIn" data-wow-delay="0.5s">
+                    <!-- Section: Live preview -->
+
+                    <!-- Card -->
+                    <div class="card gradient-card border shadow-lg">
+                        <!-- Card content -->
+                        <div class="card-image">
+
+                            <div class="text-white d-flex h-100 mask purple-gradient-rgba">
+                                <div class="first-content align-self-center p-3">
+                                    <h3 class="card-title">Today's sales</h3>
+                                    <p class="lead mb-0">Click on this card to see details</p>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                    <i class="far fa-money-bill-alt fa-3x"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+                </div>
+            </div>
+
+        </section>
+        <!-- Section: Player -->
+
+        <!-- Section: Predication cards -->
+        <section class="mb-5">
+
+            <div class="row">
+                <!-- Subheading -->
+                {% for sermon in sermons %}
+                <div id="ID{{sermon.id}}" class="col-md-6 mb-3 wow fadeIn" data-wow-delay="0.5s">
+                    <!-- Section: Live preview -->
+                    <section>
+                        <!-- Card -->
+                        <div class="card border shadow-lg">
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <!-- Title -->
+                                <div class="card-title row">
+                                    <div class="col-lg-10 col-md-8">
+                                        <h5><strong>{{ sermon.titre }}</strong></h5>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4">
+                                        <a class="btn-floating right btn-action ml-auto mr-1 green lighten-2"
+                                           onclick="toogle_audio_section()"><i
+                                                class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <h6> {{ sermon.predicateur }} - {{ sermon.type }}</h6>
+                                <!-- Text -->
+                                <p class="card-text mb-0">{{ sermon.description }}</p>
+                            </div>
+                            <!-- Card content -->
+                            <!-- Card footer -->
+                            <div class="rounded-bottom mdb-color lighten-1 text-center pt-3">
+                                <ul class="list-unstyled list-inline font-small">
+                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>
+                                        {{ sermon.date }}
+                                    </li>
+                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                            class="fas fa-download pr-1"></i></a></li>
+                                    {% if sermon.cheminNotes != "" %}
+                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                            class="fas fa-file-pdf pr-1"></i></a></li>
+
+                                    {% endif %}
+                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                            class="far fa-play-circle pr-1"> Lire</i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Card footer -->
+                        </div>
+                        <!-- Card -->
+
+                    </section>
+                    <!-- Section: Live preview -->
+                </div>
+                {% endfor %}
+            </div>
+
+        </section>
+        <!-- Section: Predication cards -->
+
+
+    </div>
+    <script>
+        function toogle_audio_section(){
+            var div = document.getElementById("block_audio")
+            if ( div.style.display === "none") {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+        }
+
+    </script>
+
+</main>
+<!-- Main layout -->
+

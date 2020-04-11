@@ -31,7 +31,8 @@
                                         téléconférence au 01 xx xx xx xx
                                         <br> Jeudi 20H et Dimanche 10H30
                                     </p>
-                                    <a class="btn btn-pink" href="/appv/activity#calendar"><i class="fas fa-calendar-alt left"></i> Activités du mois
+                                    <a class="btn btn-pink" href="/appv/activity#calendar"><i
+                                            class="fas fa-calendar-alt left"></i> Activités du mois
                                     </a>
                                 </div>
                             </div>
@@ -48,26 +49,25 @@
                             <!-- Card content --->
                             <div class="card-body">
                                 <!-- Title --->
-                                <div>
-                                    <h4 class="card-title left"><strong>Prédication</strong></h4>
-                                    <!-- Button -->
-                                    <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 right">
-                                        <i class="fas fa-chevron-right pl-1 right"></i>
-                                    </a>
+                                <div class="card-title row">
+                                    <div class="col-lg-10 col-md-8">
+                                        <h5><strong>{{ sermon_latest.titre }}</strong></h5>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4">
+                                        <a class="btn-floating right btn-action ml-auto mr-1 blue lighten-1" href=""><i
+                                                class="fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                                 <hr>
 
                                 <!-- Text --->
-                                <p class="card-text mb-3">Some quick example text to build on the card title and make up
-                                    the bulk
-                                    of the
-                                    card's content.
-                                </p>
+                                <p class="card-text mb-3">{{ sermon_latest.description }}</p>
                                 <p class="font-small font-weight-bold dark-grey-text mb-1"><i
                                         class="far fa-clock-o"></i>
-                                    27/08/2017</p>
-                                <p class="font-small grey-text mb-0">Anna Smith</p>
-                                <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                    {{ sermon_latest.date }}</p>
+                                <p class="font-small grey-text mb-0">{{ sermon_latest.predicateur }}</p>
+                                <p class="text-right mb-0 font-small font-weight-bold"><a
+                                        href="/appv/sermon#ID{{ sermon_latest.id }}">read more <i
                                         class="fas fa-angle-right"></i></a></p>
                             </div>
                             <!-- Card content --->

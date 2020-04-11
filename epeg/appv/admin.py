@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import MediaAudio, GalleryItem
+from .models import Predication, Gallery
 
-admin.site.register(GalleryItem)
-admin.site.register(MediaAudio)
+admin.site.register(Gallery)
+admin.site.register(Predication)

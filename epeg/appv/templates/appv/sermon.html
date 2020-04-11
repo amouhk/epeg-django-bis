@@ -1,0 +1,18 @@
+{% extends "appv/base.html" %}
+{% block appv-title %}EPE des Gobelins{% endblock %}
+
+{% block appv-styles %}
+    {% include 'appv/parts/styles.html' %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appv/css/style.caroussel.css' %}" >
+{% endblock %}
+
+{% block appv-navbar %} {% include 'appv/parts/navbar.html' %} {% endblock %}
+
+{% block appv-section-home %} {% include 'appv/parts/caroussel.html' %} {% endblock %}
+
+{% block appv-content %} {% include 'appv/parts/section-sermon.html' %} {% endblock %}
+
+{% block appv-footer %} {% include 'appv/parts/footer.html' %} {% endblock %}
+
+{% block appv-scripts %} {% include 'appv/parts/scripts.html' %} {% endblock %}

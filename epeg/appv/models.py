@@ -3,7 +3,7 @@ from django.db import models
 
 
 # Create your models here.
-class GalleryItem(models.Model):
+class Gallery(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=25)
     ALBUM_CHOICES = (('Photo', 'PHOTO'), ('Video', 'VIDEO'),)
@@ -12,7 +12,7 @@ class GalleryItem(models.Model):
     filepath = models.TextField()
 
 
-class MediaAudio(models.Model):
+class Predication(models.Model):
     id = models.IntegerField(primary_key=True)
     titre = models.TextField(max_length=100)
     predicateur = models.CharField(max_length=25)
@@ -22,4 +22,6 @@ class MediaAudio(models.Model):
     type = models.CharField(max_length=25)
     artwork = models.TextField()
     cheminNotes = models.TextField()
+
+
 
