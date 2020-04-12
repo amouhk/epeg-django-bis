@@ -1,0 +1,41 @@
+[02-Apr-2019 08:22:28 Europe/Paris] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'epegobel_user'@'localhost' (using password: YES) in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 08:22:28 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 08:22:28 Europe/Paris] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'epegobel_user'@'localhost' (using password: YES) in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 08:22:28 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 08:26:53 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 08:26:53 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 08:26:53 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 08:26:53 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 08:27:03 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 08:27:03 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 08:27:03 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 08:27:03 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 08:27:25 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 08:27:25 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 08:27:26 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 08:27:26 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 10:26:41 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 10:26:41 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 10:26:44 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 10:26:44 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 10:27:57 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 10:27:57 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 10:28:00 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 10:28:00 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 10:39:40 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 10:39:40 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 10:39:40 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 10:39:40 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 11:06:01 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 11:06:01 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 11:06:01 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 11:06:01 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[02-Apr-2019 11:06:47 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 7
+[02-Apr-2019 11:06:47 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-card-data-by-id.php on line 9
+[02-Apr-2019 11:06:48 Europe/Paris] PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'epegobel_user'@'localhost' to database 'epegobel_database' in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 3
+[02-Apr-2019 11:06:48 Europe/Paris] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/epegobel/public_html/libs/mysql/get-last-verset-data.php on line 5
+[08-Apr-2019 16:46:08 Europe/Paris] PHP Warning:  mkdir(): File exists in /home/epegobel/public_html/libs/mysql/functions.php on line 19
+[08-Apr-2019 16:55:55 Europe/Paris] PHP Warning:  mkdir(): File exists in /home/epegobel/public_html/libs/mysql/functions.php on line 19
+[08-Apr-2019 17:06:20 Europe/Paris] PHP Warning:  mkdir(): File exists in /home/epegobel/public_html/libs/mysql/functions.php on line 19
+[08-Apr-2019 17:15:34 Europe/Paris] PHP Warning:  mkdir(): File exists in /home/epegobel/public_html/libs/mysql/functions.php on line 19
+[09-Apr-2019 15:37:37 Europe/Paris] PHP Warning:  mkdir(): File exists in /home/epegobel/public_html/libs/mysql/functions.php on line 19

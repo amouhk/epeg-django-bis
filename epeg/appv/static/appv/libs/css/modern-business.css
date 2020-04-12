@@ -1,0 +1,198 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ *  adorateur_Croix_0002.jpg
+ */
+
+
+/*#container-bg{*/
+  /*background: url('/Thumbs/001-Avenue-Gobelins-gray.jpg') no-repeat center center fixed;*/
+  /*background: url('/Thumbs/001-Avenue-Gobelins.jpg') no-repeat center center fixed;*/
+  /*background: url('/Thumbs/002-Avenue-Gobelins-gray.jpg') no-repeat center center fixed;*/
+  /*background: url('/Thumbs/002-Avenue-Gobelins.jpg') no-repeat center center fixed;*/
+  /*background: url('/Thumbs/003-Avenue-Gobelins-gray.jpg') no-repeat center center fixed;*/
+  /*background: url('/ressources/images/bg-img/003-Avenue-Gobelins.jpg') no-repeat center center fixed;*/
+  /*background: url('/Thumbs/Mountains.jpg') no-repeat center center fixed;*/
+
+/*  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/  
+/*}*/
+
+
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.page-current {}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+.thumbnail{
+
+  -webkit-transform: translate(0%, 5%);
+  -ms-transform: translate(0%, 5%);
+  transform: translate(0%, 5%);
+}
+
+img.left {
+  width: 20%;
+  height: auto;
+
+
+}
+
+li.borderless { 
+  border: 0 none; 
+}
+
+ /*.thumbnail {
+  float: left;
+  position: relative;
+  left: 1px;
+  top: -1px;
+  
+  
+ -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}*/
+
+/*object-fit: cover; */
+/*object-position: center; */
+/*img.left {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  height: auto;
+  width: 10%;
+  -webkit-transform: translate(-1%, -2%);
+  -ms-transform: translate(-1%, -2%);
+  transform: translate(-1%, -2%);
+}*/
+
+.author {
+  background-color: #9ECAFF;
+  height: 30px;
+  width: 40%;
+  border-radius: 20px;
+}
+
+.author > img {
+  padding-top: 5px;
+  margin-left: 10px;
+  float: left;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+#predicateur{
+  float: left;
+}
+
+.separator {
+  margin-top: 10px;
+  border: 1px solid #C3C3C3;
+  width: 100%;
+}
+
+#description{
+  width: 100%;
+}
+
+.card-pred-right{
+  float: left;
+  position: relative;
+  width: 25%;
+  margin-top: 3%;
+  -webkit-transform: translate(0%, 25%);
+  -ms-transform: translate(0%, 25%);
+  transform: translate(0%, 25%);
+}
+
+.card-pred-top{
+    margin-top: -10px;
+    margin-left: 50%;
+    width: 60%;
+}
+
+.card-footer-cust{
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 100%;
+  -webkit-transform: translate(5%, 100%);
+  -ms-transform: translate(5%, 100%);
+  transform: translate(5%, 100%);    
+}
+
+.pred-left-border {
+  -webkit-transform: translate(10%, 0%);
+  -ms-transform: translate(10%, 0%);
+  transform: translate(10%, 0%);
+}
+
+.panel-hidden{
+  display: none;
+}
+
+
+.panel-audio-item
+{
+  border: 1px solid #40be60; /*ulime */
+  border-left: 6px solid #40be60;
+  border-radius: 5px;
+  background-color:#ffffff;
+}
+
+.new-font-size{
+   font-size: 1.22rem;
+}
+
+.navbar-brand a:hover{
+    text-decoration: none; 
+}
+
+.bg-pattern {
+    /*background: url('/ressources/patterns/christmas-dark.png');*/
+    background-color: #343a5e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

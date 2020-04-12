@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block appv-title %}Mon site Web vitrine{% endblock %}</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'appv/img/logo/logo_01.png' %}">
     {% block appv-styles %} {% endblock %}
 </head>
 <body>

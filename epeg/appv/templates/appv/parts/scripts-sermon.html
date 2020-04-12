@@ -1,0 +1,52 @@
+{% load static %}
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'appv/js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'appv/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'appv/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'appv/js/mdb.min.js' %}"></script>
+
+
+<!-- jPList core js -->
+<script type="text/javascript" src="{% static 'appv/js/jplist.core.min.js' %}"></script>
+<!-- jPList sort bundle -->
+<script type="text/javascript" src="{% static 'appv/js/jplist.sort-bundle.min.js' %}"></script>
+<!-- jPList textbox filter control -->
+<script type="text/javascript" src="{% static 'appv/js/jplist.textbox-filter.min.js' %}"></script>
+<!-- jPList toggle bundle-->
+<script type="text/javascript" src="{% static 'appv/js/jplist.filter-toggle-bundle.min.js' %}"></script>
+<!-- filter dropdown bundle-->
+<script type="text/javascript" src="{% static 'appv/js/jplist.filter-dropdown-bundle.min.js' %}"></script>
+<!-- jQuery UI -->
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.min.js' %}"></script>
+<!-- jPList jQuery UI bundle js -->
+<script type="text/javascript" src="{% static 'appv/js/jplist.jquery-ui-bundle.min.js' %}"></script>
+
+
+<script>
+    // Animation init
+    new WOW().init();
+
+    $(function() {
+        var selectedClass = "";
+        $(".filter").click(function() {
+            selectedClass = $(this).attr("data-rel");
+            $("#gallery").fadeTo(100, 0.1);
+            $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+            setTimeout(function() {
+                $("." + selectedClass).fadeIn().addClass('animation');
+                $("#gallery").fadeTo(300, 1);
+            }, 300);
+        });
+    });
+
+    $('document').ready(function(){
+       $('#demo').jplist({
+          itemsBox: '.list'
+          ,itemPath: '.list-item'
+          ,panelPath: '.jplist-panel'
+       });
+    });
+</script>

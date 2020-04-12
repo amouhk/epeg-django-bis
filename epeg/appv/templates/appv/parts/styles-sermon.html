@@ -1,0 +1,96 @@
+{% load static %}
+<!-- Bootstrap core CSS -->
+<link href="{% static 'appv/libs/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'appv/libs/css/colors.css' %}" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'appv/libs/css/modern-business.css' %}" rel="stylesheet">
+
+<!-- Icons styles-->
+<script src="https://kit.fontawesome.com/0613d2dcba.js"></script>
+
+<link rel="stylesheet" href="{% static 'appv/libs/css/footer-with-button-logo.css' %}">
+
+<script type="text/javascript" src="{% static 'appv/libs/js/lib/jquery.min.js' %}"></script>
+
+<!-- demo page styles -->
+<link href="{% static 'appv/libs/css/jplist.demo-pages.min.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- jPList css files -->
+<!-- jPList core js and css  -->
+<link href="{% static 'appv/libs/css/jplist.core.min.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'appv/libs/js/jplist.core.min.js' %}"></script>
+
+<!-- jPList sort bundle -->
+<script src="{% static 'appv/libs/js/jplist.sort-bundle.min.js' %}"></script>
+
+<!-- jPList textbox filter control -->
+<script src="{% static 'appv/libs/js/jplist.textbox-filter.min.js' %}"></script>
+<link href="{% static 'appv/libs/css/jplist.textbox-filter.min.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- jPList pagination bundle -->
+<script src="{% static 'appv/libs/js/jplist.pagination-bundle.min.js' %}"></script>
+<link href="{% static 'appv/libs/css/jplist.pagination-bundle.min.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- jPList toggle bundle-->
+
+<script src="{% static 'appv/libs/js/jplist.filter-toggle-bundle.min.js' %}"></script>
+<link href="{% static 'appv/libs/css/jplist.filter-toggle-bundle.min.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- filter dropdown bundle-->
+<script src="{% static 'appv/libs/js/jplist.filter-dropdown-bundle.min.js' %}"></script>
+
+<!-- jQuery UI js and css -->
+<script src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0-rc.1/themes/smoothness/jquery-ui.css"/>
+
+<!-- jPList jQuery UI bundle js and css -->
+<link href="{% static 'appv/libs/css/jplist.jquery-ui-bundle.min.css' %}" rel="stylesheet" type="text/css"/>
+<script src="{% static 'appv/libs/js/jplist.jquery-ui-bundle.min.js' %}"></script>
+
+<!-- Jplayer styles -->
+<link type="text/css" href="{% static 'appv/libs/skin/blue.monday/css/jplayer.blue.monday.min.css' %}"
+      rel="stylesheet"/>
+<script type="text/javascript" src="{% static 'appv/libs/js/jquery.jplayer.min.js' %}"></script>
+
+<link href="{% static 'appv/libs/css/colors.min.css' %}" rel="stylesheet" type="text/css"/>
+
+<script src="{% static 'appv/libs/js/bootstrap-slider.js' %}"></script>
+
+<script src="{% static 'appv/libs/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- jPList start -->
+<script>
+      $('document').ready(function(){
+
+            /**
+      * user defined functions
+      */
+      jQuery.fn.jplist.settings = {
+
+        /**
+        * jQuery UI date picker
+        */
+        datepicker: function(input, options){
+
+          //set options
+          options.dateFormat = 'yy-mm-dd';
+                    options.changeMonth = true;
+                    options.changeYear = true;
+
+          //start datepicker
+          input.datepicker(options);
+        }
+
+      };
+
+      //start jplist
+      $('#demo').jplist({
+      itemsBox: '.list'
+      ,itemPath: '.list-item'
+      ,panelPath: '.jplist-panel'
+      });
+
+      });
+
+</script>

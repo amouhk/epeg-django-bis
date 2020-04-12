@@ -2,6 +2,7 @@
 epeg/.idea
 epeg/.idea/*
 epeg/appv/static/appv/gallery
+epeg/appv/static/appv/media
 epeg/appv/static/appv/gallery/*
 epeg/appv/templatetags/__pycache__
 epeg/appv/migrations/*

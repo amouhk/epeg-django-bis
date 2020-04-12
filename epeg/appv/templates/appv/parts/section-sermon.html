@@ -1,36 +1,43 @@
 <!-- Main content -->
 {% load static %}
+{% load extras %}
 <main>
     <div class="container">
 
         <!-- Section heading -->
-        <h2 class="title text-center pb-3 font-weight-bold my-5 wow fadeIn" data-wow-delay="0.2s">
+        <h2 id="top" class="title text-center pb-3 font-weight-bold my-5 wow fadeIn" data-wow-delay="0.2s">
             <strong> Prédications & Témoignages </strong>
         </h2>
 
         <!-- Section: Player -->
-        <section class="mb-5">
+        <section id="player_panel" class="mb-5" style="display: none">
 
             <div class="row">
-                <!-- Subheading -->
-                <div id="panel_audio" class="col mb-3 wow fadeIn" data-wow-delay="0.5s">
-                    <!-- Section: Live preview -->
-
+                <div  class="col mb-3 wow fadeIn" data-wow-delay="0.5s">
                     <!-- Card -->
-                    <div class="card gradient-card border shadow-lg">
+                    <div class="card gradient-card border">
                         <!-- Card content -->
                         <div class="card-image">
 
                             <div class="text-white d-flex h-100 mask purple-gradient-rgba">
+                                <div class="second-content align-self-center mx-auto text-center">
+                                    <img src="{% static 'appv/img/sound-left.png' %}" width="70px">
+
+                                </div>
                                 <div class="first-content align-self-center p-3">
-                                    <h3 class="card-title">Today's sales</h3>
-                                    <p class="lead mb-0">Click on this card to see details</p>
+                                    <h5 id="audio_title" class="card-title">Titre de la preication</h5>
+                                    <h6 id="audio_author" class="lead mb-0">predicateur</h6>
                                 </div>
                                 <div class="second-content align-self-center mx-auto text-center">
-                                    <i class="far fa-money-bill-alt fa-3x"></i>
+                                    <audio id="audio_player" controls preload="metadata" autoplay>
+                                        <source src="" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="second-content align-self-center mx-auto text-center">
+                                    <img src="{% static 'appv/img/sound-right.png' %}" width="70px">
                                 </div>
                             </div>
-
                         </div>
                         <!-- Card content -->
                     </div>
@@ -44,60 +51,209 @@
         <!-- Section: Predication cards -->
         <section class="mb-5">
 
-            <div class="row">
-                <!-- Subheading -->
-                {% for sermon in sermons %}
-                <div id="ID{{sermon.id}}" class="col-md-6 mb-3 wow fadeIn" data-wow-delay="0.5s">
-                    <!-- Section: Live preview -->
-                    <section>
-                        <!-- Card -->
-                        <div class="card border shadow-lg">
-                            <!-- Card content -->
-                            <div class="card-body">
-                                <!-- Title -->
-                                <div class="card-title row">
-                                    <div class="col-lg-10 col-md-8">
-                                        <h5><strong>{{ sermon.titre }}</strong></h5>
-                                    </div>
-                                    <div class="col-lg-2 col-md-4">
-                                        <a class="btn-floating right btn-action ml-auto mr-1 green lighten-2"
-                                           onclick="toogle_audio_section()"><i
-                                                class="fas fa-chevron-right"></i></a>
-                                    </div>
+            <div id="demo" class="jplist">
+                <div class="container">
+                    <div class="row">
+                        <div class="col aqua-gradient-rgba">
+                            <!-- ios button: show/hide panel -->
+                            <div class="jplist-ios-button">
+                                <i class="fa fa-sort"></i>
+                                Actions
+                            </div>
+
+                            <!-- panel -->
+                            <div class="jplist-panel box panel-top pt-3 pb-3 aqua">
+
+                                <!-- type category -->
+                                <div class="aqua">
+                                    <select
+                                            class="jplist-select"
+                                            data-type="text"
+                                            data-control-type="filter-select"
+                                            data-control-name="category-filter"
+                                            data-control-action="filter">
+
+                                        <option data-path="default">Tout</option>
+                                        <option data-path=".Prédication">Prédication</option>
+                                        <option data-path=".Témoignage">Témoignage</option>
+                                        <option data-path=".Autre">Autre</option>
+                                    </select>
                                 </div>
 
-                                <hr>
+                                <!-- sort dropdown -->
+                                <div
+                                        class="jplist-drop-down"
+                                        data-control-type="sort-drop-down"
+                                        data-control-name="sort"
+                                        data-control-action="sort"
+                                        data-datetime-format="{year}-{month}-{day}">
+                                    <!-- {year}, {month}, {day}, {hour}, {min}, {sec} -->
 
-                                <h6> {{ sermon.predicateur }} - {{ sermon.type }}</h6>
-                                <!-- Text -->
-                                <p class="card-text mb-0">{{ sermon.description }}</p>
-                            </div>
-                            <!-- Card content -->
-                            <!-- Card footer -->
-                            <div class="rounded-bottom mdb-color lighten-1 text-center pt-3">
-                                <ul class="list-unstyled list-inline font-small">
-                                    <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>
-                                        {{ sermon.date }}
-                                    </li>
-                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
-                                            class="fas fa-download pr-1"></i></a></li>
-                                    {% if sermon.cheminNotes != "" %}
-                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
-                                            class="fas fa-file-pdf pr-1"></i></a></li>
+                                    <ul>
+                                        <li>
+                                            <span data-path="default">Trier by</span>
+                                        </li>
+                                        <li>
+                                            <span data-path=".title" data-order="asc" data-type="text">Title A-Z</span>
+                                        </li>
+                                        <li>
+                                            <span data-path=".title" data-order="desc" data-type="text">Title Z-A</span>
+                                        </li>
+                                        <li>
+                                            <span data-path=".desc" data-order="asc" data-type="text">Orateur A-Z</span>
+                                        </li>
+                                        <li>
+                                            <span data-path=".desc" data-order="desc"
+                                                  data-type="text">Orateur Z-A</span>
+                                        </li>
+                                        <li>
+                                            <span data-path=".date" data-order="asc"
+                                                  data-type="datetime">Date &uarr;</span>
+                                        </li>
+                                        <li>
+                                        <span data-path=".date" data-order="desc" data-type="datetime"
+                                              data-default="true">Date &darr;</span>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                                    {% endif %}
-                                    <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
-                                            class="far fa-play-circle pr-1"> Lire</i></a></li>
-                                </ul>
+                                <!-- filter by title -->
+                                <div class="text-filter-box aqua lighten-1">
+
+                                    <i class="fa fa-search  jplist-icon aqua lighten-3"></i>
+
+                                    <!--[if lt IE 10]>
+                                    <div class="jplist-label">Filter by Title:</div>
+                                    <![endif]-->
+
+                                    <input
+                                            data-path="*"
+                                            type="text"
+                                            value=""
+                                            placeholder="Recherche"
+                                            data-control-type="textbox"
+                                            data-control-name="title-filter"
+                                            data-control-action="filter"
+                                    />
+                                </div>
+
+                                <!-- date picker range filter
+                                <div
+                                        data-control-type="date-picker-range-filter"
+                                        data-control-name="date-picker-range-filter"
+                                        data-control-action="filter"
+                                        data-path=".date"
+                                        data-datetime-format="{year}-{month}-{day}"
+                                        data-datepicker-func="datepicker"
+                                        class="jplist-date-picker-range ">
+
+                                    <label>Filtrer par date :</label>
+                                    <i class="fa fa-calendar jplist-icon aqua" aria-hidden="true"></i>
+                                    <input
+                                            style="width: 75px"
+                                            type="text"
+                                            class="date-picker"
+                                            placeholder="début"
+                                            data-type="prev"/>
+
+                                    <i class="fa fa-minus gap" aria-hidden="true"></i>
+
+                                    <i class="fa fa-calendar jplist-icon aqua" aria-hidden="true"></i>
+                                    <input
+                                            style="width: 75px"
+                                            type="text"
+                                            class="date-picker"
+                                            placeholder="Fin"
+                                            data-type="next"/>
+                                </div>
+                                -->
+
                             </div>
-                            <!-- Card footer -->
+
                         </div>
-                        <!-- Card -->
-
-                    </section>
-                    <!-- Section: Live preview -->
+                    </div>
                 </div>
-                {% endfor %}
+
+                <div class="row">
+                    <div class="list box">
+                        <!-- Subheading -->
+                        {% for sermon in sermons %}
+                        <div id="ID{{sermon.id}}" class="list-item box col-md-6 mb-3 wow fadeIn" data-wow-delay="0.5s">
+                            <!-- Section: Live preview -->
+                            <section>
+                                <!-- Card -->
+                                <div class="card border shadow">
+                                    <!-- Card content -->
+                                    <div class="card-body rgba-brown-slight">
+                                        <!-- Title -->
+                                        <div class="card-title row">
+                                            <div class="col-lg-10 col-md-8">
+                                                <h5 class="title text"><strong>{{ sermon.titre }}</strong></h5>
+                                            </div>
+                                            <div class="col-lg-2 col-md-4">
+                                                <a class="btn-floating right btn-action ml-auto mr-1 green lighten-2" href="#top"
+                onclick='load_player( "{% static "appv/"|concat_string:sermon.cheminFichier %}", "{{ sermon.titre }}", "{{ sermon.predicateur }}" )' >
+                                                    <i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <h6 class="typeMsg"> {{ sermon.predicateur }}</h6>
+                                        <p class="theme">
+                                            <span class="{{ sermon.type }}">{{ sermon.type }}</span>
+                                        </p>
+                                        <!-- Text -->
+                                        <p class="card-text desc mb-0">{{ sermon.description }}</p>
+                                    </div>
+                                    <!-- Card content -->
+                                    <!-- Card footer -->
+                                    <div class="rounded-bottom mdb-color lighten-2 text-center pt-3">
+                                        <ul class="list-unstyled list-inline lg">
+
+                                            <li class="list-inline-item pr-2">
+                                                <a class="white-text bg-green"
+                                                   download="{% static 'appv/'|concat_string:sermon.cheminFichier %}"
+                                                    href="">
+                                                    <i class="fas fa-download pr-1"></i>Download</a>
+                                            </li>
+
+                                            <li class="list-inline-item pr-2">
+                                                <a href="#" class="white-text bg-blue"><i class="fas fa-share-alt pr-1"></i>Share </a>
+                                            </li>
+
+                                            {% if sermon.cheminNotes != "" %}
+                                            <li class="list-inline-item pr-2">
+                                                <a class="white-text" download="{% static 'appv/'|concat_string:sermon.cheminNotes %}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
+                                            </li>
+                                            {% endif %}
+
+                                            <li class="list-inline-item pr-2">
+                                                <a class="white-text"
+                                                   href="#top"
+                                                   onclick='load_player( "{% static "appv/"|concat_string:sermon.cheminFichier %}", "{{ sermon.titre }}", "{{ sermon.predicateur }}" )'>
+                                                    <i class="far fa-play-circle pr-1"></i>Lire </a>
+                                            </li>
+
+                                            <li class="date list-inline-item pr-2 white-text">
+                                                <i class="far fa-clock pr-1"></i> {{ sermon.date }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                </div>
+                                <!-- Card -->
+
+                            </section>
+                            <!-- Section: Live preview -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="box jplist-no-results text-shadow align-center">
+                        <p>Aucun résultat</p>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -106,14 +262,24 @@
 
     </div>
     <script>
-        function toogle_audio_section(){
-            var div = document.getElementById("block_audio")
+        function load_player(source, title, msg){
+            var div = document.getElementById("player_panel")
             if ( div.style.display === "none") {
                 div.style.display = "block";
-            } else {
-                div.style.display = "none";
             }
+
+            if ( div.style.display === "block") {
+                document.getElementById("audio_player").src = source
+                document.getElementById("audio_title").innerHTML = title
+                document.getElementById("audio_author").innerHTML = msg
+
+            }
+
+
         }
+
+
+
 
     </script>
 
