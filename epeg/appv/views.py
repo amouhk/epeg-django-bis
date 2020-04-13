@@ -2,9 +2,12 @@ import pprint
 
 from django.http import Http404
 from django.shortcuts import render
+from django.core.mail import send_mail
+
 
 from appv.models import Gallery
 from appv.models import Predication
+from .forms import ContactForm
 
 
 def home(request):
@@ -14,6 +17,27 @@ def home(request):
 
 def about(request):
     welcome = "Bienvenue à l 'Église Protestante Évangélique \n aux Gobelins"
+
+    # Mail sending request
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            send_mail(
+                subject=str(form["subject"].value()),
+                message=str(form['message'].value()),
+                from_email='kevin.amouh@gmail.com',
+                recipient_list=[str(form['email'].value())],
+                fail_silently=False
+            )
+
+        form.clean()
+        form = ContactForm()
+
+    else:
+        form = ContactForm()
+
     return render(request, 'appv/about-us.html', locals())
 
 
