@@ -25,8 +25,9 @@ SECRET_KEY = '$k$!19o_rv9vn9917$26kp)yp7&(phd6w3g-fpwu_&d=dpz!xp'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.0.10',
-    '82.64.149.128'
+    '82.64.149.128',
+    'qnaskam.myqnapcloud.com',
+    '192.168.0.10'
 ]
 
 # Application definition
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appv',
+    'appv_admin',
 ]
 
 MIDDLEWARE = [
@@ -93,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'epeg_db',
         'USER': 'django',
-        'PASSWORD': 'kE5A62u4nnDG74RZ',
+        'PASSWORD': 'pdU9yYvvpUgJWu3$ny*n4z8RwLm&yEd#yv9e?y@6!tM9b5JEGA629qvVNV+KAV=fr?K9jw',
         'HOST': '82.64.149.128',
         'PORT': '',
     }
@@ -135,6 +137,31 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/share/CACHEDEV1_DATA/Web/static/'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+# Sending Email
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kevin.amouh@gmail.com'
+EMAIL_HOST_PASSWORD = 'kVe52OiTj'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+# For deployment
+# CSRF_COOKIE_SECURE = True
+#
+# SECURE_SSL_REDIRECT = True
+#
+# SECURE_HSTS_SECONDS = 3600
+#
+# SECURE_HSTS_PRELOAD = True
+#
+# SESSION_COOKIE_SECURE = True
+#
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#
+# SECURE_REFERRER_POLICY = "no-referrer"
