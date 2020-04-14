@@ -9,4 +9,7 @@ epeg/appv/migrations/*
 epeg/appv/__pycache__
 epeg/appv/__pycache__/*
 epeg/epeg/__pycache__
+epeg/appv_admin/migrations
+epeg/appv_admin/__pycache__
+
 
