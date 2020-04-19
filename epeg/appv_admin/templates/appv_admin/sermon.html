@@ -1,0 +1,77 @@
+{% extends "appv_admin/base.html" %}
+{% load static %}
+  <!-- DataTables.net  -->
+{% block admin-styles %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'appv_admin/css/addons/datatables.min.css' %}">
+  <link rel="stylesheet" href="{% static 'appv_admin/css/addons/datatables-select.min.css' %}">
+{% endblock %}
+
+{% block admin-content %}
+{% include 'appv_admin/parts/section-tables.html' %}
+{% include 'appv_admin/parts/section-tables-modals.html' %}
+
+{% endblock %}
+
+{% block admin-scripts %}
+<style>
+  .custom-selected {
+    background: yellow;
+    color: green;
+  }
+</style>
+  <!-- DataTables  -->
+  <script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables.min.js' %}"></script>
+  <!-- DataTables Select  -->
+  <script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables-select.min.js' %}"></script>
+  <!-- Custom scripts -->
+  <script>
+  $(document).ready(function () {
+    $('#dtMaterialDesignExample').DataTable({
+      // ordering at enter
+      "order": [[ 3, "desc" ]],
+      // Pagination
+      "pagingType": "full_numbers",
+      // select check box
+      columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0
+      }],
+      select: {
+        style: 'os',
+        selector: 'td:first-child'
+      }
+    });
+    $('.dataTables_length').addClass('bs-select');
+
+    var table = $('#dtMaterialDesignExample').DataTable();
+
+    table.on( 'deselect', function ( e, dt, type, indexes ) {
+        document.getElementById("btnDelete").style.visibility = "hidden"
+        document.getElementById("btnEdit").style.visibility = "hidden"
+    });
+
+    table.on( 'select', function ( e, dt, type, indexes ) {
+        if ( type === 'row' ) {
+          document.getElementById("btnDelete").style.visibility = "visible"
+          document.getElementById("btnEdit").style.visibility = "visible"
+        }
+        //table[ type ]( indexes ).nodes().to$().addClass( 'custom-selected' );
+        // var myvar = table[ type ]( indexes ).nodes().to$().data-id
+        // if ( type === 'row' ) {
+        // var data = table.rows( indexes ).data().pluck( 'id' );
+        //document.write(data)
+        //}
+    } );
+
+    // Data Picker Initialization
+    $('.datepicker').pickadate({
+      format: 'dd-mm-yyyy',
+      formatSubmit: 'dd-mm-yyyy',
+    });
+
+  });
+
+  </script>
+{% endblock %}

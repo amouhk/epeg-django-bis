@@ -9,9 +9,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{% static 'appv/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'appv_admin/css/bootstrap.min.css' %}">
     <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="{% static 'appv/css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'appv_admin/css/mdb.min.css' %}">
     <!-- Your custom styles (optional) -->
     <style>
     html,
@@ -38,6 +38,8 @@
     }
 
 
+
+
     </style>
 </head>
 
@@ -49,11 +51,22 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong>MDB</strong></a>
-            <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+            <a class="navbar-brand purple-gradient" href="#"><strong>EPE GOBELINS</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
                     aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </a>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/appv/accueil"> Visiter le site web <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <div class="navbar-nav my-0">
+                    <a class="nav-link mr-sm-2 text-white" href="#"> Administration </a>
+                </div>
+            </div>
         </div>
     </nav>
     <!-- Navbar -->
@@ -67,44 +80,47 @@
 
                         <!-- Form with header -->
                         <div class="card wow fadeIn" data-wow-delay="0.3s">
-                            <div class="card-body">
+                            <form action="/appv_admin/login" method="post">
+                                {% csrf_token %}
+                                <div class="card-body">
 
-                                <!-- Header -->
-                                <div class="form-header purple-gradient">
-                                    <h3 class="font-weight-500 my-2 py-1"><i class="fas fa-user"></i> Log in:</h3>
-                                </div>
-
-                                <!-- Body -->
-                                <div class="md-form">
-                                    <i class="fas fa-user prefix white-text"></i>
-                                    <input type="text" id="orangeForm-name" class="form-control">
-                                    <label for="orangeForm-name">Your name</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-envelope prefix white-text"></i>
-                                    <input type="text" id="orangeForm-email" class="form-control">
-                                    <label for="orangeForm-email">Your email</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-lock prefix white-text"></i>
-                                    <input type="password" id="orangeForm-pass" class="form-control">
-                                    <label for="orangeForm-pass">Your password</label>
-                                </div>
-
-                                <div class="text-center">
-                                    <button class="btn purple-gradient btn-lg">Sign up</button>
-                                    <hr class="mt-4">
-                                    <div class="inline-ul text-center d-flex justify-content-center">
-                                        <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text"></i></a>
-                                        <a class="p-2 m-2 fa-lg li-ic"><i
-                                                class="fab fa-linkedin-in white-text"> </i></a>
-                                        <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text"> </i></a>
+                                    <!-- Header -->
+                                    <div class="form-header purple-gradient">
+                                        <h3 class="font-weight-500 my-2 py-1"><i class="fas fa-user"></i> Log in:</h3>
                                     </div>
-                                </div>
 
-                            </div>
+                                    <!-- Body -->
+                                    <div class="md-form">
+                                        <i class="fas fa-user prefix white-text"></i>
+                                        {{ form.name }}
+                                        <label for="id_name">login</label>
+                                    </div>
+
+                                    <div class="md-form">
+                                        <i class="fas fa-envelope prefix white-text"></i>
+                                        {{ form.email }}
+                                        <label for="id_email">email</label>
+                                    </div>
+
+                                    <div class="md-form">
+                                        <i class="fas fa-lock prefix white-text"></i>
+                                        <label for="id_password" class="">mot de passe</label>
+                                        {{ form.password }}
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button class="btn purple-gradient btn-lg" type="submit">Sign up</button>
+                                        <hr class="mt-4">
+                                        <div class="inline-ul text-center d-flex justify-content-center">
+                                            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text"></i></a>
+                                            <a class="p-2 m-2 fa-lg li-ic"><i
+                                                    class="fab fa-linkedin-in white-text"> </i></a>
+                                            <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text"> </i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
                         </div>
                         <!-- Form with header -->
 
@@ -120,18 +136,20 @@
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script type="text/javascript" src="{% static 'appv/js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'appv_admin/js/jquery-3.4.1.min.js' %}"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{% static 'appv/js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'appv_admin/js/popper.min.js' %}"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static 'appv/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'appv_admin/js/bootstrap.min.js' %}"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="{% static 'appv/js/mdb.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'appv_admin/js/mdb.min.js' %}"></script>
 
 <!-- Custom scripts -->
 <script>
 
     new WOW().init();
+
+
 
 
 

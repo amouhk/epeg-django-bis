@@ -3,6 +3,7 @@ import pprint
 from django.http import Http404
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django_user_agents.utils import get_user_agent
 
 
 from appv.models import Gallery
@@ -58,4 +59,8 @@ def gallery(request):
 def sermon(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
     sermons = Predication.objects.order_by('date').reverse()
+    device_mobile = 0
+    user_agent = get_user_agent(request)
+    if user_agent.is_mobile or user_agent.is_tablet:
+        device_mobile = 1
     return render(request, 'appv/sermon.html', locals())

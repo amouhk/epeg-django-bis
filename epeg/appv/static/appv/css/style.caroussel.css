@@ -24,6 +24,23 @@
       }
     }*/
 
+   /*@media (min-width: 50px) and (max-width: 740px) {
+      #frame-calendar {
+        width : 50%;
+        height : 50px;
+      }
+
+      #card-calendar {
+        height: 15px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+     #frame-calendar {
+        width : 85%;
+        height : 800px;
+      }
+    }*/
+
     /* Carousel*/
     .view,
     .carousel,

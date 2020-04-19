@@ -10,8 +10,46 @@
         </h2>
 
         <!-- Section: Player -->
-        <section id="player_panel" class="mb-5" style="display: none">
+        <section id="player_panel" class="mb-2" style="display: none">
 
+            {% if device_mobile == 1 %}
+            <div class="row">
+                <div  class="col mb-3 wow fadeIn" data-wow-delay="0.5s">
+                    <!-- Card -->
+                    <div class="card gradient-card border">
+                        <!-- Card content -->
+                        <div class="card-image">
+
+                            <div class="row text-white d-flex h-100 mask purple-gradient-rgba">
+                                <!--
+                                <div class="second-content align-self-center mx-auto text-center">
+                                    <img src="{% static 'appv/img/sound-left.png' %}" width="70px">
+
+                                </div>
+                                -->
+                                <div class="col first-content align-self-center p-3">
+                                    <h5 id="audio_title" class="card-title">Titre de la preication</h5>
+                                    <h6 id="audio_author" class="lead mb-0">predicateur</h6>
+                                </div>
+                                <div class="col second-content align-self-center mx-auto text-center">
+                                    <audio id="audio_player" controls preload="metadata" autoplay>
+                                        <source src="" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <!--
+                                <div class="second-content align-self-center mx-auto text-center">
+                                    <img src="{% static 'appv/img/sound-right.png' %}" width="70px">
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                        <!-- Card content -->
+                    </div>
+                    <!-- Card -->
+                </div>
+            </div>
+            {% else %}
             <div class="row">
                 <div  class="col mb-3 wow fadeIn" data-wow-delay="0.5s">
                     <!-- Card -->
@@ -44,6 +82,7 @@
                     <!-- Card -->
                 </div>
             </div>
+            {% endif %}
 
         </section>
         <!-- Section: Player -->
@@ -188,18 +227,18 @@
                                         <!-- Title -->
                                         <div class="card-title row">
                                             <div class="col-lg-10 col-md-8">
-                                                <h5 class="title text"><strong>{{ sermon.titre }}</strong></h5>
+                                                <h5 class="title text"><strong>{{ sermon.title }}</strong></h5>
                                             </div>
                                             <div class="col-lg-2 col-md-4">
                                                 <a class="btn-floating right btn-action ml-auto mr-1 green lighten-2" href="#top"
-                onclick='load_player( "{% static "appv/"|concat_string:sermon.cheminFichier %}", "{{ sermon.titre }}", "{{ sermon.predicateur }}" )' >
+                onclick='load_player( "{% static "appv/"|concat_string:sermon.audio %}", "{{ sermon.title }}", "{{ sermon.predicator }}" )' >
                                                     <i class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
 
                                         <hr>
 
-                                        <h6 class="typeMsg"> {{ sermon.predicateur }}</h6>
+                                        <h6 class="typeMsg"> {{ sermon.predicator }}</h6>
                                         <p class="theme">
                                             <span class="{{ sermon.type }}">{{ sermon.type }}</span>
                                         </p>
@@ -213,7 +252,7 @@
 
                                             <li class="list-inline-item pr-2">
                                                 <a class="white-text bg-green"
-                                                   download="{% static 'appv/'|concat_string:sermon.cheminFichier %}"
+                                                   download="{% static 'appv/'|concat_string:sermon.audio %}"
                                                     href="">
                                                     <i class="fas fa-download pr-1"></i>Download</a>
                                             </li>
@@ -222,16 +261,16 @@
                                                 <a href="#" class="white-text bg-blue"><i class="fas fa-share-alt pr-1"></i>Share </a>
                                             </li>
 
-                                            {% if sermon.cheminNotes != "" %}
+                                            {% if sermon.note != "" %}
                                             <li class="list-inline-item pr-2">
-                                                <a class="white-text" download="{% static 'appv/'|concat_string:sermon.cheminNotes %}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
+                                                <a class="white-text" download="{% static 'appv/'|concat_string:sermon.note %}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
                                             </li>
                                             {% endif %}
 
                                             <li class="list-inline-item pr-2">
                                                 <a class="white-text"
                                                    href="#top"
-                                                   onclick='load_player( "{% static "appv/"|concat_string:sermon.cheminFichier %}", "{{ sermon.titre }}", "{{ sermon.predicateur }}" )'>
+                                                   onclick='load_player( "{% static "appv/"|concat_string:sermon.audio %}", "{{ sermon.title }}", "{{ sermon.predicator }}" )'>
                                                     <i class="far fa-play-circle pr-1"></i>Lire </a>
                                             </li>
 

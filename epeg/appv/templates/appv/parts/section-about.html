@@ -13,10 +13,10 @@
             </h2>
 
             <!-- Grid row -->
-            <div class="row pt-5 wow fadeIn" data-wow-delay="0.4s">
+            <div class="row wow fadeIn" data-wow-delay="0.4s">
 
                 <!-- Grid column -->
-                <div class="col-lg-6 col-md-12 mb-5 text-left">
+                <div class="col-lg-6 col-md-12 text-left">
 
                     <!-- Secion heading -->
                     <h4 class="mb-3 title font-weight-bold wow fadeIn" data-wow-delay="0.2s">
@@ -695,19 +695,23 @@
                                 <!-- Body -->
                                 <div class="md-form">
                                     <i class="fas fa-user prefix grey-text"></i>
-                                     {{ form.name }}
+                                    {{ form.name }}
+                                    <label for="id_name">Nom </label>
                                 </div>
                                 <div class="md-form">
                                     <i class="fas fa-envelope prefix grey-text"></i>
                                     {{ form.email }}
+                                    <label for="id_email">Email</label>
                                 </div>
                                 <div class="md-form">
                                     <i class="fas fa-tag prefix grey-text"></i>
                                     {{ form.subject }}
+                                    <label for="id_subject">Objet</label>
                                 </div>
                                 <div class="md-form">
                                     <i class="fas fa-pencil-alt prefix grey-text"></i>
                                     {{ form.message }}
+                                    <label for="id_message">Message</label>
                                 </div>
                                 <div class="text-center">
                                     <button class="btn btn-light-blue" type="submit">Envoyer</button>
