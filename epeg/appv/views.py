@@ -50,6 +50,7 @@ def activity(request):
 
 def gallery(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
+    gallery_svr_path = "http://82.64.149.128/media/"
     albums = Gallery.objects.values('album').distinct()
     photos = Gallery.objects.filter(type="Photo")
     videos = Gallery.objects.filter(type="Video")
@@ -58,6 +59,8 @@ def gallery(request):
 
 def sermon(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
+    audio_svr_path = "http://82.64.149.128/"
+    audio_doc_svr_path = "http://82.64.149.128/"
     sermons = Predication.objects.order_by('date').reverse()
     device_mobile = 0
     user_agent = get_user_agent(request)

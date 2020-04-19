@@ -231,7 +231,7 @@
                                             </div>
                                             <div class="col-lg-2 col-md-4">
                                                 <a class="btn-floating right btn-action ml-auto mr-1 green lighten-2" href="#top"
-                onclick='load_player( "{% static "appv/"|concat_string:sermon.audio %}", "{{ sermon.title }}", "{{ sermon.predicator }}" )' >
+                onclick='load_player( "{{ audio_svr_path|concat_string:sermon.audio }}", "{{ sermon.title }}", "{{ sermon.predicator }}" )' >
                                                     <i class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -252,7 +252,7 @@
 
                                             <li class="list-inline-item pr-2">
                                                 <a class="white-text bg-green"
-                                                   download="{% static 'appv/'|concat_string:sermon.audio %}"
+                                                   download="{{ audio_svr_path|concat_string:sermon.audio }}"
                                                     href="">
                                                     <i class="fas fa-download pr-1"></i>Download</a>
                                             </li>
@@ -263,14 +263,14 @@
 
                                             {% if sermon.note != "" %}
                                             <li class="list-inline-item pr-2">
-                                                <a class="white-text" download="{% static 'appv/'|concat_string:sermon.note %}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
+                                                <a class="white-text" download="{{ audio_doc_svr_path|concat_string:sermon.note }}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
                                             </li>
                                             {% endif %}
 
                                             <li class="list-inline-item pr-2">
                                                 <a class="white-text"
                                                    href="#top"
-                                                   onclick='load_player( "{% static "appv/"|concat_string:sermon.audio %}", "{{ sermon.title }}", "{{ sermon.predicator }}" )'>
+                                                   onclick='load_player( "{{ audio_svr_path|concat_string:sermon.audio }}", "{{ sermon.title }}", "{{ sermon.predicator }}" )'>
                                                     <i class="far fa-play-circle pr-1"></i>Lire </a>
                                             </li>
 
