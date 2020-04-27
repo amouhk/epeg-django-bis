@@ -6,8 +6,7 @@ from django.core.mail import send_mail
 from django_user_agents.utils import get_user_agent
 
 
-from appv.models import Gallery
-from appv.models import Predication
+from .models import Gallery, Predication, Agenda
 from .forms import ContactForm
 
 
@@ -44,7 +43,8 @@ def about(request):
 
 def activity(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    announce = "appv/pdf/programme_avril_2020.pdf"
+    agenda_svr_path = "http://82.64.149.128/media/"
+    agenda_current = Agenda.objects.all()[:1].get()
     return render(request, 'appv/activity.html', locals())
 
 
@@ -59,8 +59,8 @@ def gallery(request):
 
 def sermon(request):
     welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    audio_svr_path = "http://82.64.149.128/"
-    audio_doc_svr_path = "http://82.64.149.128/"
+    audio_svr_path = "http://82.64.149.128/media/"
+    audio_doc_svr_path = "http://82.64.149.128/media/"
     sermons = Predication.objects.order_by('date').reverse()
     device_mobile = 0
     user_agent = get_user_agent(request)

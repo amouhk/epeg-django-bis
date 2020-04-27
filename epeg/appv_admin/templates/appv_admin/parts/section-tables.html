@@ -2,18 +2,15 @@
 <!-- Main layout  -->
 <main>
     <div class="container-fluid mb-5">
-        <!-- Section: Basic examples -->
+        <!-- Section: Table predications -->
         <section>
-
             <!-- Gird column -->
             <div class="col-md-12">
-                <h5 class="my-4 dark-grey-text font-weight-bold">Material DataTable</h5>
-
                 <div class="card card-cascade narrower z-depth-1">
 
                     <!-- Card image -->
-                    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-
+                    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3
+                                d-flex justify-content-between align-items-center">
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
                                     class="fas fa-th-large mt-0"></i></button>
@@ -21,7 +18,7 @@
                                     class="fas fa-columns mt-0"></i></button>
                         </div>
 
-                        <a href="" class="white-text mx-3">Table name</a>
+                        <h4 class="white-text mx-3">Enregistrements Audio</h4>
 
                         <div>
                             <a id="btnEdit" type="button" class="btn btn-outline-yellow btn-rounded btn-sm px-2"
@@ -45,13 +42,14 @@
                                 <th></th>
                                 <th>Titre</th>
                                 <th>Prédicateur</th>
-                                <th>Date</th>
+                                <th width="50px">Date   </th>
                                 <th>Type</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for sermon in sermons %}
-                            <tr data-id="{{ sermon.id }}">
+                            <tr data-id="{{ sermon.id }}" data-title="{{ sermon.title }}" data-pred="{{ sermon.predicator }}"
+                                data-date="{{ sermon.date }}" data-type="{{ sermon.type }}" data-desc="{{ sermon.description }}" >
                                 <td></td>
                                 <td>{{ sermon.title }}</td>
                                 <td>{{ sermon.predicator }}</td>
@@ -76,26 +74,10 @@
             <!-- Gird column -->
 
         </section>
-        <!-- Section: Basic examples -->
+        <!-- Section: Table predications -->
 
     </div>
 
-    <!-- Section: Docs link -->
-    <section class="pb-4 pt-5">
-        <!-- Panel -->
-        <div class="card text-center">
-            <h3 class="card-header primary-color white-text">Full documentation</h3>
-            <div class="card-body">
-                <p class="card-text">Read the full documentation for these components.</p>
-                <a href="https://mdbootstrap.com/docs/jquery/tables/datatables/" target="_blank"
-                   class="btn btn-primary">Learn
-                    more</a>
-            </div>
-        </div>
-        <!-- /.Panel -->
-
-    </section>
-    <!-- Section: Docs link -->
 </main>
 <!-- Main layout -->
 

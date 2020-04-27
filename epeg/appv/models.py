@@ -13,21 +13,25 @@ TYPE_CHOICES = (
     ('Autre', 'Autre'),
 )
 
+EMPTY_CHOICES = (
+    ('Autre', 'Autre'),
+)
+
 
 # Create your models here.
 class Gallery(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, default="name")
     type = models.CharField(max_length=6, choices=ALBUM_CHOICES)
     album = models.CharField(max_length=25)
-    filepath = models.TextField()
+    filepath = models.FileField()
 
     class Meta:
         db_table = "gallery"
 
 
 class Predication(models.Model):
-    id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     title = models.TextField(max_length=100)
     predicator = models.CharField(max_length=25)
     description = models.TextField()
@@ -39,3 +43,12 @@ class Predication(models.Model):
 
     class Meta:
         db_table = "predication"
+
+
+class Agenda(models.Model):
+    date = models.DateField(default=django.utils.timezone.now)
+    filepath = models.FileField()
+    name = models.TextField(max_length=50)
+
+    class Meta:
+        db_table = "agenda"

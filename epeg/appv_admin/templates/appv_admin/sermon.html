@@ -14,12 +14,6 @@
 {% endblock %}
 
 {% block admin-scripts %}
-<style>
-  .custom-selected {
-    background: yellow;
-    color: green;
-  }
-</style>
   <!-- DataTables  -->
   <script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables.min.js' %}"></script>
   <!-- DataTables Select  -->
@@ -30,8 +24,18 @@
     $('#dtMaterialDesignExample').DataTable({
       // ordering at enter
       "order": [[ 3, "desc" ]],
+
       // Pagination
-      "pagingType": "full_numbers",
+      // "pagingType": "full_numbers",
+
+      // vertical scroll
+      "paging": false,
+      "fnInitComplete": function () {
+        var myCustomScrollbar = document.querySelector('#dtMaterialDesignExample_wrapper .dataTables_scrollBody');
+        var ps = new PerfectScrollbar(myCustomScrollbar);
+      },
+      "scrollY": 450,
+
       // select check box
       columnDefs: [{
         orderable: false,
@@ -56,6 +60,31 @@
         if ( type === 'row' ) {
           document.getElementById("btnDelete").style.visibility = "visible"
           document.getElementById("btnEdit").style.visibility = "visible"
+
+          // selected row data (sermon data)
+          var sermon_id = table[ type ]( indexes ).nodes().to$().data('id');
+          var sermon_title = table[ type ]( indexes ).nodes().to$().data('title');
+          var sermon_pred = table[ type ]( indexes ).nodes().to$().data('pred');
+          var sermon_desc = table[ type ]( indexes ).nodes().to$().data('desc');
+          var sermon_type = table[ type ]( indexes ).nodes().to$().data('type');
+          var sermon_date = table[ type ]( indexes ).nodes().to$().data('date');
+
+          // setting for delete form
+          deleteText = "Voulez-vous vraiment supprimer cet enregistrement ? "
+          deleteText = deleteText + "<br>" + sermon_id + "<br>" + sermon_title
+          document.getElementById("modalDeleteText").innerHTML = deleteText
+          document.getElementById("btnYes").href = "/appv_admin/sermon?delete_id=" + sermon_id;
+
+          // setting for edit form
+          document.getElementById("id_title").value = sermon_title
+          document.getElementById("id_predicator").value = sermon_pred
+          document.getElementById("id_description").value = sermon_desc
+          document.getElementById("id_date").value = sermon_date
+          document.getElementById("id_type").value = sermon_type
+
+          document.getElementById("formModalEdit").action = "/appv_admin/sermon?update_id=" + sermon_id
+
+          // alert( " Id : " + sermon_id + " Title : " + sermon_title)
         }
         //table[ type ]( indexes ).nodes().to$().addClass( 'custom-selected' );
         // var myvar = table[ type ]( indexes ).nodes().to$().data-id

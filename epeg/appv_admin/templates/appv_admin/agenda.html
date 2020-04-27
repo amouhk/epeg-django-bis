@@ -1,3 +1,95 @@
 {% extends "appv_admin/base.html" %}
+{% load static %}
+  <!-- DataTables.net  -->
+{% block admin-styles %}
 
-{% block admin-content %} {% include 'appv_admin/parts/section-agenda.html' %} {% endblock %}
+  <link rel="stylesheet" type="text/css" href="{% static 'appv_admin/css/addons/datatables.min.css' %}">
+  <link rel="stylesheet" href="{% static 'appv_admin/css/addons/datatables-select.min.css' %}">
+{% endblock %}
+
+{% block admin-content %}
+{% include 'appv_admin/parts/section-agenda.html' %}
+{% endblock %}
+
+{% block admin-scripts %}
+  <!-- DataTables  -->
+  <script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables.min.js' %}"></script>
+  <!-- DataTables Select  -->
+  <script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables-select.min.js' %}"></script>
+  <!-- Custom scripts -->
+  <script>
+  $(document).ready(function () {
+    $('#dtMaterialDesignExample').DataTable({
+      // ordering at enter
+      "order": [[ 0, "desc" ]],
+
+      // vertical scroll
+      "paging": false,
+      "fnInitComplete": function () {
+        var myCustomScrollbar = document.querySelector('#dtMaterialDesignExample_wrapper .dataTables_scrollBody');
+        var ps = new PerfectScrollbar(myCustomScrollbar);
+      },
+      "scrollY": 150,
+
+      // select row
+      select: {
+        style: 'os',
+        selector: 'td:parent'
+      }
+   });
+    $('.dataTables_length').addClass('bs-select');
+
+    var table = $('#dtMaterialDesignExample').DataTable();
+
+    table.on( 'deselect', function ( e, dt, type, indexes ) {
+        document.getElementById("btnDelete").style.visibility = "hidden"
+        document.getElementById("btnEdit").style.visibility = "hidden"
+    });
+
+    table.on( 'select', function ( e, dt, type, indexes ) {
+        if ( type === 'row' ) {
+          document.getElementById("btnDelete").style.visibility = "visible"
+          document.getElementById("btnEdit").style.visibility = "visible"
+
+          // selected row data (sermon data)
+          var sermon_id = table[ type ]( indexes ).nodes().to$().data('id');
+          var sermon_title = table[ type ]( indexes ).nodes().to$().data('title');
+          var sermon_pred = table[ type ]( indexes ).nodes().to$().data('pred');
+          var sermon_desc = table[ type ]( indexes ).nodes().to$().data('desc');
+          var sermon_type = table[ type ]( indexes ).nodes().to$().data('type');
+          var sermon_date = table[ type ]( indexes ).nodes().to$().data('date');
+
+          // setting for delete form
+          deleteText = "Voulez-vous vraiment supprimer cet enregistrement ? "
+          deleteText = deleteText + "<br>" + sermon_id + "<br>" + sermon_title
+          document.getElementById("modalDeleteText").innerHTML = deleteText
+          document.getElementById("btnYes").href = "/appv_admin/sermon?delete_id=" + sermon_id;
+
+          // setting for edit form
+          document.getElementById("id_title").value = sermon_title
+          document.getElementById("id_predicator").value = sermon_pred
+          document.getElementById("id_description").value = sermon_desc
+          document.getElementById("id_date").value = sermon_date
+          document.getElementById("id_type").value = sermon_type
+
+          document.getElementById("formModalEdit").action = "/appv_admin/sermon?update_id=" + sermon_id
+
+          // alert( " Id : " + sermon_id + " Title : " + sermon_title)
+        }
+        //table[ type ]( indexes ).nodes().to$().addClass( 'custom-selected' );
+        // var myvar = table[ type ]( indexes ).nodes().to$().data-id
+        // if ( type === 'row' ) {
+        // var data = table.rows( indexes ).data().pluck( 'id' );
+        //document.write(data)
+        //}
+    } );
+
+    // Data Picker Initialization
+    $('.datepicker').pickadate({
+      format: 'dd-mm-yyyy',
+      formatSubmit: 'dd-mm-yyyy',
+    });
+
+  });
+  </script>
+{% endblock %}

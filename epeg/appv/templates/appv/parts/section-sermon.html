@@ -258,12 +258,12 @@
                                             </li>
 
                                             <li class="list-inline-item pr-2">
-                                                <a href="#" class="white-text bg-blue"><i class="fas fa-share-alt pr-1"></i>Share </a>
+                                                <a href="#" class="white-text bg-blue" data-toggle="tooltip" data-placement="top" title="Partager cet message"><i class="fas fa-share-alt pr-1"></i>Share </a>
                                             </li>
 
                                             {% if sermon.note != "" %}
                                             <li class="list-inline-item pr-2">
-                                                <a class="white-text" download="{{ audio_doc_svr_path|concat_string:sermon.note }}"><i class="fas fa-file-pdf pr-1">Pdf</i></a>
+                                                <a class="white-text" href="" download="{{ audio_doc_svr_path|concat_string:sermon.note }}"><i class="fas fa-file-pdf pr-1"></i>Pdf</a>
                                             </li>
                                             {% endif %}
 
@@ -313,9 +313,11 @@
                 document.getElementById("audio_author").innerHTML = msg
 
             }
-
-
         }
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
 
 
 

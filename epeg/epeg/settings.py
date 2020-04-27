@@ -141,13 +141,13 @@ TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
 DATE_INPUT_FORMATS = ['%d-%m-%y']
 # LOCALE_PATHS = (BASE_DIR + '/locale', )
-# DATE_FORMAT = "%Y-%m-%d"
+DATE_FORMAT = "d-m-Y"
 # USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
@@ -161,7 +161,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/share/Web/media/'
 MEDIA_URL = '/media/'
 
 # Cache backend is optional, but recommended to speed up user agent parsing

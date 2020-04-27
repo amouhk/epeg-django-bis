@@ -11,12 +11,12 @@
                 </button>
             </div>
             <div class="modal-body mx-3">
-                <p class="text-center h4">Voulez-vous vraiment supprimer cet enregistrement ?</p>
+                <p id="modalDeleteText" class="text-center h4">--</p>
 
             </div>
             <div class="modal-footer d-flex justify-content-center deleteButtonsWrapper">
-                <button type="button" class="btn btn-danger btnYesClass" id="btnYes" data-dismiss="modal">OUI</button>
-                <button type="button" class="btn btn-primary btnNoClass" id="btnNo" data-dismiss="modal">NON</button>
+                <a type="button" class="btn btn-danger btnYesClass" id="btnYes" href="">OUI</a>
+                <a type="button" class="btn btn-primary btnNoClass" id="btnNo" data-dismiss="modal">NON</a>
             </div>
         </div>
     </div>
@@ -33,14 +33,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/appv_admin/sermon" method="post" enctype="multipart/form-data">
+            <form id="formModalEdit" action="/appv_admin/sermon?update_id=" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="modal-body mx-3 modal-inputs">
                     <div class="row mb-0">
-                        <div class="col md-form mb-2 mt-2">
-                            {{ form.id }}
-                            <label data-error="wrong" data-success="right" for="id_id">Id</label>
-                        </div>
                         <div class="col md-form mb-2 mt-2">
                             {{ form.date }}
                             <label data-error="wrong" data-success="right" for="id_date">Date</label>
@@ -76,8 +72,7 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center editInsideWrapper">
-                    <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Edit
-                        form
+                    <button class="btn btn-outline-secondary btn-block editInside" type="submit">Modifier
                         <i class="far fa-paper-plane ml-1"></i>
                     </button>
                 </div>

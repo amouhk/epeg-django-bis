@@ -1,0 +1,39 @@
+{% extends "appv_admin/base.html" %}
+{% load static %}
+
+{% block admin-styles %}
+<link rel="stylesheet" href="{% static 'appv_admin/css/style.css' %}">
+<style>
+    span {
+    color : white;
+  }
+
+</style>
+{% endblock %}
+
+{% block admin-content %} {% include 'appv_admin/parts/section-gallery.html' %} {% endblock %}
+
+{% block admin-scripts %}
+{% load static %}
+<!-- DataTables  -->
+<script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables.min.js' %}"></script>
+<!-- DataTables Select  -->
+<script type="text/javascript" src="{% static 'appv_admin/js/addons/datatables-select.min.js' %}"></script>
+<!-- Custom scripts -->
+<script>
+  $(document).ready(function() {
+    // init md select
+    $('.mdb-select').materialSelect();
+
+    $('select').append(`<option style="color: white;" disabled selected value=""> Choose </option>`);
+
+    //$('.file-upload').file_upload();
+    $("input:first").addClass("white-text");
+
+    $("#mdb-lightbox-ui").load("{% static 'appv_admin/mdb-addons/mdb-lightbox-ui.html' %}");
+  });
+
+
+</script>
+
+{% endblock %}

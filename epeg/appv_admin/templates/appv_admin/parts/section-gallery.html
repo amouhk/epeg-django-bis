@@ -1,0 +1,141 @@
+<!-- Main layout -->
+{% load static %}
+<main>
+
+    <div class="container">
+
+        <div style="height: 5px"></div>
+
+        <!-- Section:  panel -->
+        <section class="mb-5">
+
+            <!-- Card -->
+            <div class="card card-cascade narrower">
+
+                <!-- Section: Photos & Vidéos -->
+                <section>
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-xl-6 col-md-12 mr-0">
+
+                            <!-- Card image -->
+                            <div class="view view-cascade gradient-card-header light-blue lighten-1">
+                                <h4 class="h4-responsive mb-0 font-weight-bold white-text">Ajout de Photos & Vidéos</h4>
+                            </div>
+                            <!-- Card image -->
+
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade pb-0">
+
+                                <!-- Panel data -->
+                                <div class="row card-body pt-2">
+
+                                    <!-- First column -->
+                                    <div class="card panels-card col-md-12 mb-4 pt-4 indigo lighten-2 white-text">
+                                        <form class="text-center white-text" action="/appv_admin/gallery"
+                                              method="post" enctype="multipart/form-data">
+                                            <h5> Ajouter des photos et videos </h5>
+                                            {% csrf_token %}
+
+                                            <div class="form-row white-text">
+                                                <div class="col mr-2 pr-4">
+                                                    <div class="md-form pr-4 white-text">
+                                                        {{ form.album }}
+                                                        <label class="mdb-main-label white-text">Album</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col ml-2">
+                                                    <div class="md-form white-text">
+                                                        {{ form.type }}
+                                                        <label class="mdb-main-label white-text">Catégorie</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="md-form file-upload-wrapper">
+                                                {{ form.filepath }}
+                                            </div>
+
+                                            <div class="md-form">
+                                                <button class="btn btn-rounded btn-outline-successful btn-lg"
+                                                        type="submit">
+                                                    Envoyer
+                                                    <i class="fas fa-paper-plane pl-1"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <!-- First column -->
+
+                                </div>
+                                <!-- Panel data -->
+
+                            </div>
+                            <!-- Card content -->
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-xl-6 col-md-12 mb-4">
+
+                            <!-- Card image -->
+                            <div class="view view-cascade gradient-card-header white">
+
+                                <!--First row-->
+                                <div class="row">
+
+                                    <!--First column-->
+                                    <div class="col-md-12">
+
+                                        <div id="mdb-lightbox-ui"></div>
+
+                                        <!--Full width lightbox-->
+                                        <div class="mdb-lightbox">
+                                            {% load extras %}
+                                            {% for item in items_gallery %}
+                                            <figure class="col-md-3">
+                                                <a href="{{ gallery_svr_path|concat_string:item.filepath }}" data-size="1600x1067">
+                                                    <img src="{{ gallery_svr_path|concat_string:item.filepath }}"
+                                                         class="img-fluid">
+                                                </a>
+                                                <figcaption> {{ item.name }} {{ item.id }} </figcaption>
+                                            </figure>
+                                            {% endfor %}
+
+
+                                        </div>
+                                        <!--/Full width lightbox-->
+
+                                    </div>
+                                    <!--/First column-->
+
+                                </div>
+                                <!--/First row-->
+
+                            </div>
+                            <!-- Card image -->
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                </section>
+                <!-- Section: Photos & Vidéos -->
+
+            </div>
+            <!-- Card -->
+
+        </section>
+        <!-- Section:  panel -->
+    </div>
+
+
+</main>
+<!-- Main layout -->

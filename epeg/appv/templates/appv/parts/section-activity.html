@@ -235,9 +235,10 @@
 
                         <!-- Content -->
                         <div class="card-body">
-                            {% load static %}
-                            <iframe id="frame-calendar" src="{% static announce %}#zoom=100" frameborder="0"
-                                    style="border:0" allowfullscreen width="85%" height="800px"></iframe>
+                            {% load extras %}
+                            <iframe id="frame-calendar" src="{{ agenda_svr_path|concat_string:agenda_current.filepath }}#zoom=100"
+                                    frameborder="0"  style="border:0" allowfullscreen width="85%" height="800px">
+                            </iframe>
                         </div>
 
                     </div>

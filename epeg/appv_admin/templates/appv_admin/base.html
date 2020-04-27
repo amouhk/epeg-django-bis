@@ -57,13 +57,29 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/appv_admin/sermon" class="collapsible-header waves-effect arrow-r">
-                            <i class="w-fa fas fa-table"></i>Prédication<i class="rotate-icon"></i>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/appv_admin/agenda" class="collapsible-header waves-effect"><i
                                 class="w-fa far fa-calendar-check"></i>Agenda</a>
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="w-fa fab fa-medium"></i>Mediathèque<i
+                                class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="/appv_admin/sermon" class="waves-effect">
+                                        <i class="w-fa fas fa-headphones-alt"></i>Audios</a>
+                                </li>
+                                <li>
+                                    <a href="/appv_admin/gallery" class="waves-effect">
+                                        <i class="w-fa fas fa-photo-video"></i>Galérie</a>
+                                </li>
+                                <li>
+                                    <a href="../dashboards/v-3.html" class="waves-effect">Version 3</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </li>
@@ -151,7 +167,9 @@
 <!-- Main Navigation -->
 
 <!-- Main layout -->
-{% block admin-content %}<main></main>{% endblock %}
+{% block admin-content %}
+<main></main>
+{% endblock %}
 <!-- Main layout -->
 
 <!-- Footer -->
@@ -293,6 +311,7 @@
       myBarChart.update();
 
     });
+
 </script>
 {% endblock %}
 </body>
