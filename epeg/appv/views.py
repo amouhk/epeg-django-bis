@@ -4,14 +4,31 @@ from django.http import Http404
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django_user_agents.utils import get_user_agent
+from time import mktime
+from django.utils.datetime_safe import datetime
+import feedparser
+from bs4 import BeautifulSoup
 
-
-from .models import Gallery, Predication, Agenda
+from .models import Gallery, Predication, Agenda, MeditationFluxRss
 from .forms import ContactForm
 
 
+
+FEEDS_LINK_E21_DON_CARSON = "https://evangile21.thegospelcoalition.org/dieu-qui-se-devoil/feed/"
+
 def home(request):
     sermon_latest = Predication.objects.order_by('date').reverse()[0]
+    
+    meditation = MeditationFluxRss()
+    feed_parser = feedparser.parse(FEEDS_LINK_E21_DON_CARSON)
+    if feed_parser['entries'][0]:
+        meditation.title = feed_parser['entries'][0].title
+        meditation.link = feed_parser['entries'][0].link
+        soup = BeautifulSoup(feed_parser['entries'][0].description)
+        meditation.desc = soup.get_text()
+        meditation.date = datetime.fromtimestamp(mktime(feed_parser['entries'][0].published_parsed))
+       # meditation.save()
+
     return render(request, 'appv/index.html', locals())
 
 

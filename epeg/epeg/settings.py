@@ -28,7 +28,8 @@ ALLOWED_HOSTS = [
     'naskam',
     '82.64.149.128',
     'qnaskam.myqnapcloud.com',
-    '192.168.0.10'
+    '192.168.0.10',
+    '192.168.0.11'
 ]
 
 # Application definition
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'appv_admin',
     # Other apps...
     'django_user_agents',
+    #'feeds',# use base feed module
 ]
 
 MIDDLEWARE = [
@@ -198,3 +200,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 #
 # SECURE_REFERRER_POLICY = "no-referrer"
+
+# RSS FEED
+#FEEDS_USER_AGENT = "E21Feeder/1.0"
+#FEEDS_SERVER = "https://evangile21.thegospelcoalition.org/dieu-qui-se-devoil/feed/"
+#FEEDS_LINK_E21_DON_CARSON = "https://evangile21.thegospelcoalition.org/dieu-qui-se-devoil/feed/"
+
