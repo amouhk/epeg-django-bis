@@ -52,3 +52,17 @@ class Agenda(models.Model):
 
     class Meta:
         db_table = "agenda"
+
+class MeditationFluxRss(models.Model):
+    title = models.CharField(max_length=200)
+    link = models.CharField(max_length=2048)
+    desc = models.TextField(null=True, blank=True)
+    date = models.DateTimeField()
+
+class Meditation(models.Model):
+    reference = models.CharField(max_length=200)
+    desc = models.TextField(null=True, blank=True)
+    date = models.DateField(default=django.utils.timezone.now)
+
+    class Meta:
+        db_table = "meditation"

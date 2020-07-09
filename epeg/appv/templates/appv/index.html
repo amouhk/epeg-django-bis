@@ -1,13 +1,21 @@
 {% extends "appv/base.html" %}
 {% block appv-title %}EPE des Gobelins{% endblock %}
 
-{% block appv-styles %} {% include 'appv/parts/styles.html' %} {% endblock %}
+{% block appv-styles %} {% include 'appv/parts/styles.html' %} 
+
+<style type="text/css">
+    html, body {
+      height: 100%;
+    }
+ 
+</style>
+{% endblock %}
 
 {% block appv-navbar %} {% include 'appv/parts/navbar.html' %} {% endblock %}
 
 {% block appv-section-home %} {% include 'appv/parts/section-home.html' %} {% endblock %}
 
-{% block appv-content %}{% endblock %}
+{% block appv-content %} {% include 'appv/parts/section-home-missions.html' %} {% endblock %}
 
 {% block appv-footer %} {% include 'appv/parts/footer.html' %} {% endblock %}
 
