@@ -42,37 +42,39 @@
                     </div>
 
                     <div class="col-md-12 mt-2 mt-md-2 mb-2 wow fadeInRight" data-wow-delay="0.8s">
-                        <!-- Card --->
+                        <!-- Card -->
                         <div class="card">
                             <!-- Card image -->
 
-                            <!-- Card content --->
+                            <!-- Card content -->
                             <div class="card-body">
-                                <!-- Title --->
+                                <!-- Title -->
                                 <div class="card-title row">
                                     <div class="col-lg-10 col-md-8">
-                                        <h5><strong>{{ sermon_latest.titre }}</strong></h5>
+                                        <h5><strong>{{ sermon_latest.title }}</strong></h5>
                                     </div>
                                     <div class="col-lg-2 col-md-4">
-                                        <a class="btn-floating right btn-action ml-auto mr-1 blue lighten-1" href=""><i
-                                                class="fas fa-chevron-right"></i></a>
+                                        <a class="btn-floating right btn-action ml-auto mr-1 blue lighten-1"
+                                            data-toggle="modal" data-target="#modalAudio">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <hr>
 
-                                <!-- Text --->
+                                <!-- Text -->
                                 <p class="card-text mb-3">{{ sermon_latest.description }}</p>
                                 <p class="font-small font-weight-bold dark-grey-text mb-1"><i
                                         class="far fa-clock-o"></i>
                                     {{ sermon_latest.date }}</p>
                                 <p class="font-small grey-text mb-0">{{ sermon_latest.predicateur }}</p>
                                 <p class="text-right mb-0 font-small font-weight-bold"><a
-                                        href="/appv/sermon#ID{{ sermon_latest.id }}">read more <i
+                                        href="/appv/sermon#ID{{ sermon_latest.id }}">plus de prédications <i
                                         class="fas fa-angle-right"></i></a></p>
                             </div>
-                            <!-- Card content --->
+                            <!-- Card content -->
                         </div>
-                        <!-- Card --->
+                        <!-- Card -->
                     </div>
 
 

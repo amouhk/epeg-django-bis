@@ -13,7 +13,10 @@
 
 {% block appv-navbar %} {% include 'appv/parts/navbar.html' %} {% endblock %}
 
-{% block appv-section-home %} {% include 'appv/parts/section-home.html' %} {% endblock %}
+{% block appv-section-home %} 
+  {% include 'appv/parts/section-home.html' %} 
+  {% include 'appv/parts/section-home-modals.html' %}
+{% endblock %}
 
 {% block appv-content %} {% include 'appv/parts/section-home-missions.html' %} {% endblock %}
 
