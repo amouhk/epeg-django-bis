@@ -235,10 +235,26 @@
 
                         <!-- Content -->
                         <div class="card-body">
+                            {% load static %}
                             {% load extras %}
-                            <iframe id="frame-calendar" src="{{ agenda_svr_path|concat_string:agenda_current.filepath }}#zoom=100"
-                                    frameborder="0"  style="border:0" allowfullscreen width="85%" height="800px">
-                            </iframe>
+                            <object data="http://82.64.149.128/media/agenda/2020/Programme_avril_2020.pdf" type="application/pdf" width="85%" height="800px">
+                                <embed src="http://82.64.149.128/media/agenda/2020/Programme_avril_2020.pdf" type="application/pdf" width="100%" height="100%">
+                                    <p>Impossble d'afficher l'agenda. Veuillez le télécharger pour le consulter : 
+                                        <a href="http://82.64.149.128/media/agenda/2020/Programme_avril_2020.pdf">Télécharger ici </a>.
+                                    </p>
+                                </embed>
+                            </object>
+                            <!--iframe id="frame-calendar" src="{{ agenda_svr_path|concat_string:agenda_current.filepath }}#zoom=100"
+                                    frameborder="0" width="85%" height="800px">
+                            </iframe
+                            <object data='{% static 'appv/pdf/programme_avril_2020.pdf' %}' type="application/pdf" width="85%" height="800px">
+                                <embed src='{% static 'appv/pdf/programme_avril_2020.pdf' %}' type="application/pdf" width="100%" height="100%">
+                                    <p>Impossble d'afficher l'agenda. Veuillez le télécharger pour le consulter : 
+                                        <a href='{% static 'appv/pdf/programme_avril_2020.pdf' %}'>Télécharger ici </a>.
+                                    </p>
+                                </embed>
+                            </object>
+                            -->
                         </div>
 
                     </div>
