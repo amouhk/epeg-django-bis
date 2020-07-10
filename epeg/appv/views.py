@@ -16,18 +16,17 @@ from django import http
 
 
 
-FEEDS_LINK_E21_DON_CARSON = "https://evangile21.thegospelcoalition.org/dieu-qui-se-devoil/feed/"
+ 
 
 def home(request):
-    audio_svr_path = "http://82.64.149.128/media/"
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
     sermon_latest = Predication.objects.order_by('date').reverse()[0]
-    pprint.pprint(sermon_latest)
-
     return render(request, 'appv/index.html', locals())
 
 
 def about(request):
-    welcome = "Bienvenue à l 'Église Protestante Évangélique \n aux Gobelins"
+    welcome = conf_settings.WELCOME_MSG
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
 
     # Mail sending request
     if request.method == 'POST':
@@ -77,15 +76,17 @@ def about(request):
 
 @xframe_options_exempt
 def activity(request):
-    welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    agenda_svr_path = "http://82.64.149.128/media/"
+    welcome = conf_settings.WELCOME_MSG
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+
     agenda_current = Agenda.objects.all()[:1].get()
     return render(request, 'appv/activity.html', locals())
 
 
 def gallery(request):
-    welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    gallery_svr_path = "http://82.64.149.128/media/"
+    welcome = conf_settings.WELCOME_MSG
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+
     albums = Gallery.objects.values('album').distinct()
     photos = Gallery.objects.filter(type="Photo")
     videos = Gallery.objects.filter(type="Video")
@@ -93,9 +94,9 @@ def gallery(request):
 
 
 def sermon(request):
-    welcome = "Bienvenue à l 'Eglise Protestante Evangélique \n aux Gobelins"
-    audio_svr_path = "http://82.64.149.128/media/"
-    audio_doc_svr_path = "http://82.64.149.128/media/"
+    welcome = conf_settings.WELCOME_MSG
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+    
     sermons = Predication.objects.order_by('date').reverse()
     device_mobile = 0
     user_agent = get_user_agent(request)

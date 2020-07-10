@@ -42,7 +42,7 @@
                 {% for photo in photos %}
                 <div class="mb-3 pics animation all {{ photo.album }}">
                     <!--img class="img-fluid" src="{% static 'appv/'|concat_string:photo.filepath %}"-->
-                    <img class="img-fluid" src="{{ gallery_svr_path|concat_string:photo.filepath }}"
+                    <img class="img-fluid" src="{{ MEDIA_URL|concat_string:photo.filepath }}"
                          alt="{{ photo.name }}">
                 </div>
                 {% endfor %}
@@ -93,7 +93,7 @@
 
                                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
                                     <iframe class="embed-responsive-item"
-                                            src="{{ gallery_svr_path|concat_string:video.filepath }}"
+                                            src="{{ MEDIA_URL|concat_string:video.filepath }}"
                                             allowfullscreen></iframe>
                                 </div>
 

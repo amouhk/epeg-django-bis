@@ -99,8 +99,8 @@
                                             {% load extras %}
                                             {% for item in items_gallery %}
                                             <figure class="col-md-3">
-                                                <a href="{{ gallery_svr_path|concat_string:item.filepath }}" data-size="1600x1067">
-                                                    <img src="{{ gallery_svr_path|concat_string:item.filepath }}"
+                                                <a href="{{ MEDIA_URL|concat_string:item.filepath }}" data-size="1600x1067">
+                                                    <img src="{{ MEDIA_URL|concat_string:item.filepath }}"
                                                          class="img-fluid">
                                                 </a>
                                                 <figcaption> {{ item.name }} {{ item.id }} </figcaption>

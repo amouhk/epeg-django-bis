@@ -5,6 +5,8 @@ from .forms import LoginForm, SermonForm, AgendaForm, GalleryForm
 from django.contrib.auth.hashers import make_password
 from .models import Predication, Agenda, Gallery
 
+from django.conf import settings as conf_settings
+
 
 # Create your views here.
 
@@ -86,7 +88,7 @@ def sermon(request):
 
 
 def agenda(request):
-    agenda_svr_path = "http://82.64.149.128/media/"
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
     agendas = Agenda.objects.order_by('date')
     agenda_current = Agenda.objects.all()[:1].get()
     form = AgendaForm()
@@ -104,6 +106,8 @@ def agenda(request):
 
 
 def gallery(request):
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
+
     form = GalleryForm()
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES)
@@ -125,6 +129,5 @@ def gallery(request):
 
     form = GalleryForm()
     items_gallery = Gallery.objects.all()
-    gallery_svr_path = "http://82.64.149.128/media/"
 
     return render(request, 'appv_admin/gallery.html', locals())

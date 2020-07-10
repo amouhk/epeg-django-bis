@@ -163,6 +163,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+MEDIA_SERVER = "http://82.64.149.128"
 MEDIA_ROOT = '/share/Web/media/'
 MEDIA_URL = '/media/'
 
@@ -177,6 +178,9 @@ MEDIA_URL = '/media/'
 # Name of cache backend to cache user agents. If it not specified default
 # cache alias will be used. Set to `None` to disable caching.
 USER_AGENTS_CACHE = 'default'
+
+WELCOME_MSG = "Bienvenue à l 'Église Protestante Évangélique \n aux Gobelins"
+
 
 # Sending Email
 EMAIL_USE_SSL = False

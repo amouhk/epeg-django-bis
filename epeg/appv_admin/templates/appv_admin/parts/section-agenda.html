@@ -114,7 +114,7 @@
                                 <div class="card-body">
                                     {% load extras %}
                                     <iframe id="frame-calendar"
-                                            src="{{ agenda_svr_path|concat_string:agenda_current.filepath }}#zoom=100%"
+                                            src="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100%"
                                             frameborder="0" style="border:0" allowfullscreen>
                                     </iframe>
                                 </div>

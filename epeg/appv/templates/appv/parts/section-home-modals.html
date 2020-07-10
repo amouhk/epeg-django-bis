@@ -9,7 +9,7 @@
             <div class="modal-body text-center">
                 <div class="col second-content align-self-center mx-auto text-center">
                     <audio id="audio_player" controls preload="metadata">
-                        <source src="{{ audio_svr_path|concat_string:sermon_latest.audio }}" type="audio/mpeg">
+                        <source src="{{ MEDIA_URL|concat_string:sermon_latest.audio }}" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
