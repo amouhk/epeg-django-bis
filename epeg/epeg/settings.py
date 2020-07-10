@@ -179,11 +179,12 @@ MEDIA_URL = '/media/'
 USER_AGENTS_CACHE = 'default'
 
 # Sending Email
+EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'kevin.amouh@gmail.com'
-EMAIL_HOST_PASSWORD = 'kVe52OiTj'
+EMAIL_HOST_USER = 'kevin.doaho@gmail.com'
+EMAIL_HOST_PASSWORD = 'kVe52OiTjG@eL+&+lE'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # For deployment
