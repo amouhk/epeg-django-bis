@@ -1,11 +1,15 @@
 import pprint
 
 from django.shortcuts import render
-from .forms import LoginForm, SermonForm, AgendaForm, GalleryForm
+from .forms import LoginForm, SermonForm, AgendaForm, GalleryForm, NewUserForm
 from django.contrib.auth.hashers import make_password
 from .models import Predication, Agenda, Gallery
 
 from django.conf import settings as conf_settings
+from django.contrib import auth
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -17,21 +21,56 @@ def login(request):
         form = LoginForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            name = str(form["name"].value())
-            email = str(form['email'].value())
-            pwd = str(form['password'].value())
-            pwd_hashed = make_password(password=pwd, salt=None)
-            print("{} {} {} {}".format(name, email, pwd, pwd_hashed))
+            username = str(form['username'].value())
+            password = str(form['password'].value())
+            # pwd_hashed = make_password(password=password, salt=None)
+            # print("{} {} {}".format(username, password, pwd_hashed))
+
+            user = auth.authenticate(username=username, password=password)
+            if user is not None and user.is_active:
+                # print("Correct password, and the user is marked active")
+                auth.login(request, user)
+                # Redirect to a success page.
+                return HttpResponseRedirect("/appv_admin/home")
+            else:
+                # print("uncorrect password, or the user is not marked active")
+                # Show an error page
+                return HttpResponseRedirect("/appv_admin/login")
+
     else:
         form = LoginForm()
 
     return render(request, 'appv_admin/login.html', locals())
 
+@login_required
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect("/appv_admin/login")
 
+@login_required
 def home(request):
+    CHURCH_NAME = conf_settings.CHURCH_NAME
+
+    if request.method == 'POST':
+        form_new_user = NewUserForm(request.POST)
+        if form_new_user.is_valid():
+            user = User.objects.create_superuser( str(form_new_user['username'].value()),
+                                                  str(form_new_user['email'].value()),
+                                                  str(form_new_user['password'].value()))
+            user.first_name = str(form_new_user['first_name'].value())
+            user.last_name = str(form_new_user['last_name'].value())
+            user.is_active = True
+            user.save()
+
+            form_new_user = NewUserForm()
+            return HttpResponseRedirect("/appv_admin/home")
+
+    else:
+        form_new_user = NewUserForm()
+            
     return render(request, 'appv_admin/home.html', locals())
 
-
+@login_required
 def sermon(request):
     form = SermonForm()
 
@@ -86,7 +125,7 @@ def sermon(request):
 
     return render(request, 'appv_admin/sermon.html', locals())
 
-
+@login_required
 def agenda(request):
     MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
     agendas = Agenda.objects.order_by('date')
@@ -104,7 +143,7 @@ def agenda(request):
 
     return render(request, 'appv_admin/agenda.html', locals())
 
-
+@login_required
 def gallery(request):
     MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
 

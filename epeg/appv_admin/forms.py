@@ -1,7 +1,7 @@
 from django import forms
 from pkg_resources import require
 
-from .models import User, Predication, Agenda, Gallery
+from .models import Predication, Agenda, Gallery
 
 ALBUM_CHOICES = (
     ('Photo', 'Photo'),
@@ -20,16 +20,18 @@ TYPE_CHOICES = (
 )
 
 
-class LoginForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('name', 'email', 'password')
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
-        }
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Votre nom d'utilisateur ", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Votre mot de passe', widget= forms.PasswordInput (attrs={'class': 'form-control'}))
 
+
+class NewUserForm(forms.Form):
+    first_name = forms.CharField(label='Votre nom', max_length=25, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(label='Votre prenom', max_length=25, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(label="Votre nom d'utilisateur", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='Votre email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Votre mot de passe', widget=forms.PasswordInput(attrs={'class': 'form-control', 'aria-describedby': 'id_password_help'}))
+ 
 
 class SermonForm(forms.ModelForm):
     date = forms.DateField(input_formats=['%d-%m-%y'])

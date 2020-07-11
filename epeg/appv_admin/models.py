@@ -12,15 +12,6 @@ EMPTY_CHOICES = (
 
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
-    password = models.CharField(max_length=100)
-
-    class Meta:
-        db_table = "user"
-
-
 class Predication(models.Model):
     # id = models.AutoField(primary_key=True)
     title = models.TextField(max_length=100)

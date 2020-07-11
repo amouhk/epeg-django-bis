@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap Template</title>
+    <title>Admin - EPE Gobelins </title>
+    {% load static %}
+    <link rel="icon" href="{% static 'appv_admin/img/logo/logo_church.png' %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -86,20 +88,22 @@
 
                                     <!-- Header -->
                                     <div class="form-header purple-gradient">
-                                        <h3 class="font-weight-500 my-2 py-1"><i class="fas fa-user"></i> Log in:</h3>
+                                        <h3 class="font-weight-500 my-2 py-1"><i class="fas fa-user"></i>Se Connecter:</h3>
                                     </div>
 
                                     <!-- Body -->
+                                    <!--
                                     <div class="md-form">
                                         <i class="fas fa-user prefix white-text"></i>
                                         {{ form.name }}
                                         <label for="id_name">login</label>
                                     </div>
+                                    -->
 
                                     <div class="md-form">
                                         <i class="fas fa-envelope prefix white-text"></i>
-                                        {{ form.email }}
-                                        <label for="id_email">email</label>
+                                        {{ form.username }}
+                                        <label for="id_username">nom d'utilisateur</label>
                                     </div>
 
                                     <div class="md-form">
@@ -109,7 +113,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button class="btn purple-gradient btn-lg" type="submit">Sign up</button>
+                                        <button class="btn purple-gradient btn-lg" type="submit">valider</button>
                                         <hr class="mt-4">
                                         <div class="inline-ul text-center d-flex justify-content-center">
                                             <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text"></i></a>

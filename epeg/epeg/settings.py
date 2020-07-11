@@ -180,7 +180,9 @@ MEDIA_URL = '/media/'
 USER_AGENTS_CACHE = 'default'
 
 WELCOME_MSG = "Bienvenue à l 'Église Protestante Évangélique \n aux Gobelins"
+CHURCH_NAME = "EPE des Gobelins"
 
+LOGIN_URL="/appv_admin/login"
 
 # Sending Email
 EMAIL_USE_SSL = False
