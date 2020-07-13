@@ -157,11 +157,11 @@ DATE_FORMAT = "d-m-Y"
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/share/CACHEDEV1_DATA/Web/static/'
+STATIC_ROOT = '/home/kamouh/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
 
 MEDIA_SERVER = "http://82.64.149.128"
 MEDIA_ROOT = '/share/Web/media/'
