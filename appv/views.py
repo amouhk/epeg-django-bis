@@ -77,7 +77,7 @@ def about(request):
 @xframe_options_exempt
 def activity(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+    MEDIA_URL = conf_settings.MEDIA_URL
 
     agenda_current = Agenda.objects.all()[:1].get()
     return render(request, 'appv/activity.html', locals())
@@ -85,7 +85,7 @@ def activity(request):
 
 def gallery(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_URL
+    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
 
     albums = Gallery.objects.values('album').distinct()
     photos = Gallery.objects.filter(type="Photo")
