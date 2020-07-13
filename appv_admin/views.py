@@ -127,7 +127,7 @@ def sermon(request):
 
 @login_required
 def agenda(request):
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
+    MEDIA_URL = conf_settings.MEDIA_URL 
     agendas = Agenda.objects.order_by('date')
     agenda_current = Agenda.objects.all()[:1].get()
     form = AgendaForm()
