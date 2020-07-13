@@ -18,18 +18,37 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+# Read Password From files:
+
+
+DJANGO_SECRET_KEY = ""
+with open(BASE_DIR + '/../django_secret_key.txt') as f:
+    DJANGO_SECRET_KEY = f.read().strip()
+
+DJANGO_DB_PASSWORD = ""
+with open(BASE_DIR + '/../django_db_password_key.txt') as f:
+    DJANGO_DB_PASSWORD = f.read().strip()
+
+DJANGO_EMAIL_HOST_PASSWORD = ""
+with open(BASE_DIR + '/../django_host_mail_key.txt') as f:
+    DJANGO_EMAIL_HOST_PASSWORD = f.read().strip()
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$k$!19o_rv9vn9917$26kp)yp7&(phd6w3g-fpwu_&d=dpz!xp'
+# SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = DJANGO_SECRET_KEY
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'naskam',
     '82.64.149.128',
     'qnaskam.myqnapcloud.com',
     '192.168.0.10',
-    '192.168.0.11'
+    '192.168.0.11',
+    'kamouh.pythonanywhere.com'
 ]
 
 # Application definition
@@ -44,8 +63,6 @@ INSTALLED_APPS = [
     'appv',
     'appv_admin',
     # Other apps...
-    'django_user_agents',
-    #'feeds',# use base feed module
 ]
 
 MIDDLEWARE = [
@@ -103,9 +120,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'epeg_db',
         'USER': 'django',
-        'PASSWORD': 'pdU9yYvvpUgJWu3$ny*n4z8RwLm&yEd#yv9e?y@6!tM9b5JEGA629qvVNV+KAV=fr?K9jw',
+         #'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
+        'PASSWORD': DJANGO_DB_PASSWORD,
         'HOST': '82.64.149.128',
         'PORT': '',
+        'OPTIONS': {
+            'sql_mode' : 'STRICT_ALL_TABLES',
+        },
     }
 }
 
@@ -159,9 +180,14 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = '/home/kamouh/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
+STATIC_SERVER = "http://82.64.149.128"
+STATIC_APP = '/static_app/'
+STATIC_ADMIN = '/static_admin/'
+
+if DEBUG:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static"),
+    )
 
 MEDIA_SERVER = "http://82.64.149.128"
 MEDIA_ROOT = '/share/Web/media/'
@@ -190,7 +216,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kevin.doaho@gmail.com'
-EMAIL_HOST_PASSWORD = 'kVe52OiTjG@eL+&+lE'
+# EMAIL_HOST_PASSWORD = os.environ['DJANGO_EMAIL_HOST_PASSWORD'],
+EMAIL_HOST_PASSWORD = DJANGO_EMAIL_HOST_PASSWORD
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # For deployment
