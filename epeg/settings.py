@@ -93,6 +93,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # 'django.core.context_processors.request',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -176,9 +177,9 @@ DATE_FORMAT = "d-m-Y"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://kamouh.pythonanywhere.com/static/'
 
-STATIC_ROOT = '/home/kamouh/static/'
+STATIC_ROOT = '/home/kamouh/kamouh.pythonanywhere.com/static/'
 
 STATIC_SERVER = "http://82.64.149.128"
 STATIC_APP = '/static_app/'
@@ -190,8 +191,8 @@ if DEBUG:
     )
 
 MEDIA_SERVER = "http://82.64.149.128"
-MEDIA_ROOT = '/share/Web/media/'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/kamouh/kamouh.pythonanywhere.com/media/'
+MEDIA_URL = 'https://kamouh.pythonanywhere.com/media/'
 
 # Cache backend is optional, but recommended to speed up user agent parsing
 # CACHES = {
