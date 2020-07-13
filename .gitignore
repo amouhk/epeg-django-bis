@@ -11,5 +11,10 @@ epeg/appv/__pycache__/*
 epeg/epeg/__pycache__
 epeg/appv_admin/migrations
 epeg/appv_admin/__pycache__
-
+appv/__pycache__/
+appv/migrations/__pycache__/
+appv/templatetags/__pycache__/
+appv_admin/__pycache__/
+appv_admin/migrations/__pycache__/
+epeg/__pycache__/
 
