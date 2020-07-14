@@ -20,4 +20,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('appv_admin/', include('appv_admin.urls')),
     path('appv/', include('appv.urls')),
+    path('', include('appv.urls')),
 ]
