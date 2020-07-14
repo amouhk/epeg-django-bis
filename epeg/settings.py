@@ -178,9 +178,9 @@ DATE_FORMAT = "d-m-Y"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = 'https://www.epegobelins.net/static/'
+STATIC_URL = 'https://kamouh.pythonanywhere.com/static/'
 
-STATIC_ROOT = '/home/kamouh/www.epegobelins.net/static/'
+STATIC_ROOT = '/home/kamouh/kamouh.pythonanywhere.com/static/'
 
 STATIC_SERVER = "http://82.64.149.128"
 STATIC_APP = '/static_app/'
@@ -192,8 +192,8 @@ if DEBUG:
     )
 
 MEDIA_SERVER = "http://82.64.149.128"
-MEDIA_ROOT = '/home/kamouh/www.epegobelins.net/media/'
-MEDIA_URL = 'https://www.epegobelins.net/media/'
+MEDIA_ROOT = '/home/kamouh/kamouh.pythonanywhere.com/media/'
+MEDIA_URL = 'https://kamouh.pythonanywhere.com/media/'
 
 # Cache backend is optional, but recommended to speed up user agent parsing
 # CACHES = {
