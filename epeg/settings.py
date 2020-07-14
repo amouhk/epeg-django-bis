@@ -48,7 +48,8 @@ ALLOWED_HOSTS = [
     'qnaskam.myqnapcloud.com',
     '192.168.0.10',
     '192.168.0.11',
-    'kamouh.pythonanywhere.com'
+    'kamouh.pythonanywhere.com',
+    'www.epegobelins.net'
 ]
 
 # Application definition
