@@ -186,6 +186,9 @@ if DEBUG:
     )
 
 DOMAIN_HTTP = 'kamouh.pythonanywhere.com'
+with open(BASE_DIR + '/../domain_name.txt') as f:
+    DOMAIN_HTTP = f.read().strip()
+
 DOMAIN_DIR = '/home/kamouh/'
 
 MEDIA_ROOT = DOMAIN_DIR + DOMAIN_HTTP + '/media/'
