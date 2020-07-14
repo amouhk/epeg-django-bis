@@ -145,7 +145,7 @@ def agenda(request):
 
 @login_required
 def gallery(request):
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
+    MEDIA_URL =  conf_settings.MEDIA_URL 
 
     form = GalleryForm()
     if request.method == 'POST':

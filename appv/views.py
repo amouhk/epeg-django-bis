@@ -19,14 +19,15 @@ from django import http
  
 
 def home(request):
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL 
+    MEDIA_URL =  conf_settings.AUDIO_MEDIA_URL # Get audio url 
+
     sermon_latest = Predication.objects.order_by('date').reverse()[0]
     return render(request, 'appv/index.html', locals())
 
 
 def about(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+    MEDIA_URL =  conf_settings.MEDIA_URL  
 
     # Mail sending request
     if request.method == 'POST':
@@ -77,7 +78,7 @@ def about(request):
 @xframe_options_exempt
 def activity(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_URL
+    MEDIA_URL = conf_settings.MEDIA_URL   
 
     agenda_current = Agenda.objects.order_by('date').last()
     agenda_history = Agenda.objects.order_by('date').reverse()
@@ -86,7 +87,7 @@ def activity(request):
 
 def gallery(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+    MEDIA_URL =  conf_settings.MEDIA_URL
 
     albums = Gallery.objects.values('album').distinct()
     photos = Gallery.objects.filter(type="Photo")
@@ -96,7 +97,7 @@ def gallery(request):
 
 def sermon(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL = conf_settings.MEDIA_SERVER + conf_settings.MEDIA_URL
+    MEDIA_URL =  conf_settings.AUDIO_MEDIA_URL
     
     sermons = Predication.objects.order_by('date').reverse()
     device_mobile = 0

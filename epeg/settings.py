@@ -40,7 +40,9 @@ SECRET_KEY = DJANGO_SECRET_KEY
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+EXTERNAL = True
+
 
 ALLOWED_HOSTS = [
     'naskam',
@@ -175,25 +177,25 @@ DATE_INPUT_FORMATS = ['%d-%m-%y']
 DATE_FORMAT = "d-m-Y"
 # USE_THOUSAND_SEPARATOR = True
 
-# Static files (CSS, JavaScript, Images)
+# Static and Media files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = 'https://www.epegobelins.net/static/'
-
-STATIC_ROOT = '/home/kamouh/www.epegobelins.net/static/'
-
-STATIC_SERVER = "http://82.64.149.128"
-STATIC_APP = '/static_app/'
-STATIC_ADMIN = '/static_admin/'
 
 if DEBUG:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, "static"),
     )
 
-MEDIA_SERVER = "http://82.64.149.128"
-MEDIA_ROOT = '/home/kamouh/www.epegobelins.net/media/'
-MEDIA_URL = 'https://www.epegobelins.net/media/'
+DOMAIN_HTTP = 'kamouh.pythonanywhere.com'
+DOMAIN_DIR = '/home/kamouh/'
+
+MEDIA_ROOT = DOMAIN_DIR + DOMAIN_HTTP + '/media/'
+MEDIA_URL = 'https://' + DOMAIN_HTTP + '/media/'
+
+STATIC_ROOT = DOMAIN_DIR + DOMAIN_HTTP + '/static/'
+STATIC_URL = 'https://' + DOMAIN_HTTP + '/static/'
+
+AUDIO_MEDIA_ROOT = 'https://82.64.149.128/media/'
+AUDIO_MEDIA_URL = 'https://82.64.149.128/media/'
 
 # Cache backend is optional, but recommended to speed up user agent parsing
 # CACHES = {
