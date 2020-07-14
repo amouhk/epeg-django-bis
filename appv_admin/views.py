@@ -129,7 +129,7 @@ def sermon(request):
 def agenda(request):
     MEDIA_URL = conf_settings.MEDIA_URL 
     agendas = Agenda.objects.order_by('date')
-    agenda_current = Agenda.objects.all()[:1].get()
+    agenda_current = Agenda.objects.order_by('date').last()
     form = AgendaForm()
 
     if request.method == 'POST':

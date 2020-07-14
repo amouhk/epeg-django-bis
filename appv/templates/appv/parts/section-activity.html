@@ -221,37 +221,70 @@
 
             <!-- Section description -->
             <p class="grey-text w-responsive mb-5"></p>
-
-            <!-- Grid column -->
-            <div class="col-lg-12 col-md-12 mb-5" id="card-calendar">
-
-                <!-- Card -->
-                <div class="card card-image"
-                     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(8).jpg');">
-
-                    <!-- Content -->
-                    <div
-                            class="text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3 rounded">
+            
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-lg-9 col-md-12 mb-5" id="card-calendar">
+                    <!-- Card -->
+                    <div class="card card-image"
+                        style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(8).jpg');">
 
                         <!-- Content -->
-                        <div class="card-body">
-                            {% load static %}
-                            {% load extras %}
-                            <object data="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100" type="application/pdf" width="85%" height="800px">
-                                <embed src="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100" type="application/pdf" width="100%" height="100%">
-                                    <p>Impossble d'afficher l'agenda. Veuillez le télécharger pour le consulter : 
-                                        <a href="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100">Télécharger ici </a>.
-                                    </p>
-                                </embed>
-                            </object>
+                        <div
+                                class="text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3 rounded">
+                            <!-- Content -->
+                            <div class="card-body">
+                                {% load static %}
+                                {% load extras %}
+                                <object data="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100" type="application/pdf" width="100%" height="800px">
+                                    <embed src="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100" type="application/pdf" width="100%" height="100%">
+                                        <p>Impossble d'afficher l'agenda. Veuillez le télécharger pour le consulter : 
+                                            <a href="{{ MEDIA_URL|concat_string:agenda_current.filepath }}#zoom=100">Télécharger ici </a>.
+                                        </p>
+                                    </embed>
+                                </object>
+                            </div>
+
                         </div>
-
                     </div>
+                    <!-- Card -->
                 </div>
-                <!-- Card -->
-            </div>
-            <!-- Grid column -->
+                <div class="col-lg-3 col-md-12 mb-5">
 
+                    <div class="card-progress  mb-4">
+                        <!--Card content-->
+                        <h4 class="card-header"> Activités des mois passés </h4>
+                        <div class="card-body p-0">
+
+                            <!--Accordion wrapper-->
+                            <div class="accordion md-accordion" id="accordion-progress" role="tablist" >
+
+                                {% for agenda in agenda_history %}
+                                {% if agenda.name != agenda_current.name %}   
+                                <!-- Accordion card -->
+                                <div class="card">
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tab" id="heading-1056">
+                                        <a href="{{ MEDIA_URL }}{{ agenda.filepath }}" target="_blank" class="row">
+                                            <h6 class="col-xs-12 prog-text"> {{ agenda.name }} 
+                                                <i class="fas fa-chevron-right prog-icon"></i>  
+                                            </h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Accordion card -->
+                                {% endif %} 
+                                {% endfor %}
+                            
+                            </div>
+                            <!--/.Accordion wrapper-->
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+            </div>
         </section>
         <!-- Section: Pricing v.5 -->
 

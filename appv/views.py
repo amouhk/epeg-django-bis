@@ -79,7 +79,8 @@ def activity(request):
     welcome = conf_settings.WELCOME_MSG
     MEDIA_URL = conf_settings.MEDIA_URL
 
-    agenda_current = Agenda.objects.all()[:1].get()
+    agenda_current = Agenda.objects.order_by('date').last()
+    agenda_history = Agenda.objects.order_by('date').reverse()
     return render(request, 'appv/activity.html', locals())
 
 
