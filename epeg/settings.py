@@ -51,7 +51,10 @@ ALLOWED_HOSTS = [
     '192.168.0.10',
     '192.168.0.11',
     'kamouh.pythonanywhere.com',
-    'www.epegobelins.net'
+    'www.epegobelins.net',
+    'epegobelins.net',
+    'www.doaho.fr',
+    'doaho.fr'
 ]
 
 # Application definition
