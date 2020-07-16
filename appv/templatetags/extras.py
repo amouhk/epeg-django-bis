@@ -6,3 +6,9 @@ register = template.Library()
 @register.filter
 def concat_string(value_1, value_2):
     return str(value_1) + str(value_2)
+
+
+
+@register.filter
+def modulo(num, val):
+    return num % val

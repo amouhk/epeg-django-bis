@@ -92,6 +92,7 @@ def gallery(request):
     albums = Gallery.objects.values('album').distinct()
     photos = Gallery.objects.filter(type="Photo")
     videos = Gallery.objects.filter(type="Video")
+    pprint.pprint(albums)
     return render(request, 'appv/gallery.html', locals())
 
 

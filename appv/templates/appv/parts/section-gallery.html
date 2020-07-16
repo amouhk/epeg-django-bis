@@ -1,5 +1,6 @@
 <!-- Main content -->
 {% load static %}
+{% load extras %}
 <main>
     <!-- Photos -->
     <div class="container">
@@ -13,29 +14,23 @@
             </h2>
 
             <!-- Grid row -->
-            <div class="row">
+            <div class="section-preview mb-4 text-dark">
 
-                <!-- Grid column -->
-                <div class="col-md-12 d-flex justify-content-center mb-5 pb-2">
 
-                    <button type="button" class="btn btn-rounded btn-white font-weight-bold waves-effect filter"
-                            data-rel="all">All
+                    <button type="button" class="btn btn-cyan font-weight-bold waves-effect waves-light filter"
+                            data-rel="all"> All 
                     </button>
 
-                    {% for iter in albums %}
-                    <button type="button" class="btn btn-rounded btn-white font-weight-bold waves-effect filter"
-                            data-rel="{{ iter.album }}">{{ iter.album }}
+                    {% for data in albums %}
+                    <button type="button" class="btn btn-color-{{ forloop.counter0|modulo:4 }}  font-weight-bold waves-effect waves-light filter"
+                            data-rel="{{ data.album }}">{{ data.album }}
                     </button>
                     {% endfor %}
-
-                </div>
-                <!-- Grid column -->
 
             </div>
             <!-- Grid row -->
 
             <!-- Grid row -->
-            {% load extras %}
             <div class="gallery" id="gallery">
 
                 <!-- Grid column -->

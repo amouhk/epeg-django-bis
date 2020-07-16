@@ -5,3 +5,23 @@
 .prog-icon {
     float: right;
   }
+
+.btn-color-0 {
+  color:#fff;  
+  background-color: #82b1ff !important
+}
+
+.btn-color-1 {
+  color:#fff; 
+  background-color: #3f51b5  !important
+}
+
+.btn-color-2 {
+  color:#fff; 
+  background-color: #78909c  !important
+}
+
+.btn-color-3 {
+  color:#fff; 
+  background-color: #59698d !important
+}
