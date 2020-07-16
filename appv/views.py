@@ -90,8 +90,8 @@ def gallery(request):
     MEDIA_URL =  conf_settings.MEDIA_URL
 
     albums = Gallery.objects.values('album').distinct()
-    photos = Gallery.objects.filter(type="Photo")
-    videos = Gallery.objects.filter(type="Video")
+    photos = Gallery.objects.filter(type="Photo").reverse()
+    videos = Gallery.objects.filter(type="Video").reverse()
     pprint.pprint(albums)
     return render(request, 'appv/gallery.html', locals())
 
