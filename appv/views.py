@@ -19,7 +19,7 @@ from django import http
  
 
 def home(request):
-    MEDIA_URL =  conf_settings.AUDIO_MEDIA_URL # Get audio url 
+    MEDIA_URL =  conf_settings.MEDIA_URL # Get audio url 
 
     sermon_latest = Predication.objects.order_by('date').reverse()[0]
     return render(request, 'appv/index.html', locals())
@@ -97,7 +97,7 @@ def gallery(request):
 
 def sermon(request):
     welcome = conf_settings.WELCOME_MSG
-    MEDIA_URL =  conf_settings.AUDIO_MEDIA_URL
+    MEDIA_URL =  conf_settings.MEDIA_URL
     
     sermons = Predication.objects.order_by('date').reverse()
     device_mobile = 0

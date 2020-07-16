@@ -200,9 +200,6 @@ MEDIA_URL = 'https://' + DOMAIN_HTTP + '/media/'
 STATIC_ROOT = DOMAIN_DIR + DOMAIN_HTTP + '/static/'
 STATIC_URL = 'https://' + DOMAIN_HTTP + '/static/'
 
-AUDIO_MEDIA_ROOT = 'https://82.64.149.128:8081/media/'
-AUDIO_MEDIA_URL = 'https://82.64.149.128:8081/media/'
-
 # Cache backend is optional, but recommended to speed up user agent parsing
 # CACHES = {
 #     'default': {
