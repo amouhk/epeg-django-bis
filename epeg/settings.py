@@ -173,7 +173,7 @@ USE_L10N = False
 
 USE_TZ = True
 
-DATE_INPUT_FORMATS = ['%d-%m-%y']
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # LOCALE_PATHS = (BASE_DIR + '/locale', )
 DATE_FORMAT = "d-m-Y"
 # USE_THOUSAND_SEPARATOR = True

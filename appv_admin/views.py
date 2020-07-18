@@ -120,6 +120,8 @@ def sermon(request):
                 for key in form.cleaned_data:
                     print("{}={}".format(key, form[key].value()))
             form.clean()
+        
+        return HttpResponseRedirect("/appv_admin/sermon")
 
     sermons = Predication.objects.order_by('date')
 
@@ -138,6 +140,8 @@ def agenda(request):
             # file is saved
             form.save()
         form.clean()
+
+        return HttpResponseRedirect("/appv_admin/agenda")
 
     form = AgendaForm()
 
@@ -165,6 +169,8 @@ def gallery(request):
                 item_gallery.save()
         else:
             pprint.pprint(form.errors)
+
+        return HttpResponseRedirect("/appv_admin/gallery")
 
     form = GalleryForm()
     items_gallery = Gallery.objects.all()

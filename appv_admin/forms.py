@@ -34,8 +34,6 @@ class NewUserForm(forms.Form):
  
 
 class SermonForm(forms.ModelForm):
-    date = forms.DateField(input_formats=['%d-%m-%y'])
-
     class Meta:
         model = Predication
         fields = '__all__'
@@ -43,7 +41,7 @@ class SermonForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control validate mb-2'}),
             'predicator': forms.TextInput(attrs={'class': 'form-control validate mb-5'}),
             'description': forms.Textarea(attrs={'class': 'form-control validate mb-5'}),
-            'date': forms.DateInput(attrs={'class': 'form-control datepicker mb-2'}),
+            'date': forms.DateInput(format = '%d-%m-%Y', attrs={'class': 'form-control datepicker mb-2'}),
             'type': forms.Select(choices=TYPE_CHOICES, attrs={'class': 'form-control validate mb-2'}),
             'audio': forms.FileInput(attrs={'class': 'form-control mb-4'}),
             'avatar': forms.FileInput(attrs={'class': 'form-control mb-4'}),
