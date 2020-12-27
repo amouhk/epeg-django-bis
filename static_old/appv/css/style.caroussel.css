@@ -1,0 +1,76 @@
+
+    /* Necessary for full page carousel */
+    html, body {
+      height: 100%;
+    }
+
+    header {
+        height: 80%;
+    }
+    /*@media (min-width: 451px) and (max-width: 740px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 500px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 550px;
+      }
+    }*/
+
+   /*@media (min-width: 50px) and (max-width: 740px) {
+      #frame-calendar {
+        width : 50%;
+        height : 50px;
+      }
+
+      #card-calendar {
+        height: 15px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+     #frame-calendar {
+        width : 85%;
+        height : 800px;
+      }
+    }*/
+
+    /* Carousel*/
+    .view,
+    .carousel,
+    .carousel-item,
+    .carousel-item.active {
+      height: 100%;
+    }
+
+    .carousel-inner {
+      height: 100%;
+    }
+
+    .carousel-item:nth-child(1) {
+      /*background-image: url("https://mdbootstrap.com/img/Photos/Others/images/92.jpg");*/
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .carousel-item:nth-child(2) {
+      /*background-image: url("https://mdbootstrap.com/img/Photos/Others/images/89.jpg");*/
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .carousel-item:nth-child(3) {
+      /*background-image: url("https://mdbootstrap.com/img/Photos/Others/images/90.jpg");*/
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
