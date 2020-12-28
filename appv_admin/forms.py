@@ -31,7 +31,7 @@ class NewUserForm(forms.Form):
     username = forms.CharField(label="Votre nom d'utilisateur", widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Votre email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
     password = forms.CharField(label='Votre mot de passe', widget=forms.PasswordInput(attrs={'class': 'form-control', 'aria-describedby': 'id_password_help'}))
- 
+
 
 class SermonForm(forms.ModelForm):
     class Meta:
@@ -68,7 +68,7 @@ class GalleryForm(forms.ModelForm):
             'type': forms.Select(choices=ALBUM_CHOICES,
                                  attrs={'class': 'mdb-select md-form colorful-select dropdown-primary validate',
                                         'searchable': 'Search here..'}),
-            'album': forms.Select(choices=EMPTY_CHOICES,
+            'album': forms.Select(
                                   attrs={'class': 'mdb-select md-form colorful-select dropdown-primary validate',
                                          'searchable': 'Search here..',
                                          'editable': 'true'}),

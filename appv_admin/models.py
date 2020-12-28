@@ -42,7 +42,7 @@ class Gallery(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=25, default="name", blank=True, null=True)
     type = models.CharField(max_length=6, choices=ALBUM_CHOICES)
-    album = models.CharField(max_length=25, choices=EMPTY_CHOICES)
+    album = models.CharField(max_length=25)
     filepath = models.FileField(upload_to="")
 
     class Meta:

@@ -1,5 +1,5 @@
 import pprint
-
+import os
 from django.shortcuts import render
 from .forms import LoginForm, SermonForm, AgendaForm, GalleryForm, NewUserForm
 from django.contrib.auth.hashers import make_password
@@ -67,7 +67,7 @@ def home(request):
 
     else:
         form_new_user = NewUserForm()
-            
+
     return render(request, 'appv_admin/home.html', locals())
 
 @login_required
@@ -120,7 +120,7 @@ def sermon(request):
                 for key in form.cleaned_data:
                     print("{}={}".format(key, form[key].value()))
             form.clean()
-        
+
         return HttpResponseRedirect("/appv_admin/sermon")
 
     sermons = Predication.objects.order_by('date')
@@ -129,7 +129,7 @@ def sermon(request):
 
 @login_required
 def agenda(request):
-    MEDIA_URL = conf_settings.MEDIA_URL 
+    MEDIA_URL = conf_settings.MEDIA_URL
     agendas = Agenda.objects.order_by('date')
     agenda_current = Agenda.objects.order_by('date').last()
     form = AgendaForm()
@@ -149,24 +149,21 @@ def agenda(request):
 
 @login_required
 def gallery(request):
-    MEDIA_URL =  conf_settings.MEDIA_URL 
+    MEDIA_URL =  conf_settings.MEDIA_URL
 
     form = GalleryForm()
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES)
-        files = request.FILES.getlist('filepath')
         if form.is_valid():
-            form_data = form.cleaned_data
-            for i, file in enumerate(files):
-                item_gallery = Gallery()
-                item_gallery.album = form_data['album']
-                item_gallery.type = form_data['type']
-                item_gallery.filepath = file
-                destination = "gallery/" + str(form_data['type']) + '/' + str(form_data['album']) + '/'
-                item_gallery.filepath.field.upload_to = destination
-                item_gallery.name = "{}".format(file)
-                pprint.pprint(item_gallery)
+            for file in request.FILES.getlist('filepath'):
+                print("==> file: {}".format(file))
+                fname = os.path.splitext(str(file))[0]
+                ftype= form.cleaned_data['type']
+                falbum= form.cleaned_data['album']
+                item_gallery = Gallery(name=fname, album=falbum, type=ftype, filepath=file)
+                item_gallery.filepath.field.upload_to = "gallery/" + str(ftype) + '/' + str(falbum) + '/'
                 item_gallery.save()
+                print("Saving {} done successfully".format(file))
         else:
             pprint.pprint(form.errors)
 
